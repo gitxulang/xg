@@ -1,0 +1,129 @@
+﻿<!DOCTYPE html>
+<html> 
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>安天涉密专用运维管理系统（涉密专用计算平台版）V3.0</title>
+		<link href="assets/css/icon.css" rel="stylesheet" />
+		<link href="assets/materialize/css/materialize.min.css" rel="stylesheet" media="screen,projection" />
+		<link href="assets/css/bootstrap.css" rel="stylesheet" />
+		<link href="assets/css/font-awesome.css" rel="stylesheet" />
+		<link href="assets/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
+		<link href="assets/css/custom-styles.css" rel="stylesheet" />
+		<link href='assets/css/font-awesome.css' rel='stylesheet' type='text/css' />
+		<link href="assets/js/Lightweight-Chart/cssCharts.css" rel="stylesheet"> 
+		<link href="assets/css/common.css" rel="stylesheet">  
+	</head>
+
+	<body>
+		<div id="page-wrapper">
+			<div class="header"> 
+				<ol class="breadcrumb">
+					<li><a href="#">系统管理</a></li>
+					<li><a href="javascript:jumpPage('systemSNCreate.html')">证书注册管理</a></li>
+				</ol> 						
+			</div>
+
+			<div id="page-inner">
+				<div class="card">
+					<div class="my-card-content">
+						<div class="col">
+							<ul class="tabs">
+								<li class="tab col s3" onclick="jumpPage('systemSNActive.html')"><a href="#" style="text-decoration:none;">证书注册</a></li>
+								<li class="tab col s3" onclick="jumpPage('systemSNCreate.html')"><a href="#" class="active" style="text-decoration:none;">证书申请</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="col-md-12">
+						<div class="card">
+							<div class="card-content">
+								<form class="col s12">
+									<div class="row">
+										<div class="input-field col s6">
+											<select id="type" class="my-form-select">
+													<option value="0"> 时间限制证书</option>
+													<option value="1"> 时间永久证书</option>
+													<option value="2"> 安装无限制证书</option>
+											</select> 
+											<label for="type" class="myactive">证书注册类别</label>
+										</div>
+										
+										<div class="input-field col s6">
+											<input id="day" type="text" value="">
+											<label for="day" class="myactive">证书有效时间（天）</label>
+										</div>
+									</div>
+									<div class="row">
+										<div class="input-field col s6">
+											<input id="computer" type="text" value="">
+											<label for="computer" class="myactive">授权监控节点数量</label>
+										</div>
+										
+										<div class="input-field col s6">
+											<input id="uniquecode" type="text" value="">
+											<label for="uniquecode" class="myactive">专用服务器SOC卡唯一识别码</label>
+										</div>
+									</div>
+									<div class="row">
+										<div class="input-field col s12">
+											<input id="license" type="text" value="">
+											<label for="license" class="myactive">生成证书序列号（自动生成，不需要填写）</label>
+										</div>
+									</div>
+								</form>
+								<div class="row">
+									<div class="col-md-6" align="right">
+										<div>
+											<a href="#" onclick="licenseCreate()" class="waves-effect waves-light btn">
+												申 请
+											</a>
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div>
+											<a href="#" onclick="resetValue()" class="waves-effect waves-light btn">
+												重 置
+											</a>
+										</div>
+									</div>
+								</div>
+								<div class="clearBoth"></div>
+							</div>
+						</div>
+					</div>	
+				</div>		
+
+				<div class="fixed-action-btn horizontal click-to-toggle">
+					<a class="btn-floating btn-large red">
+						<i class="material-icons">menu</i>
+					</a>
+					<ul>
+						<li><a href="hardWare.html" class="btn-floating red"><i class="material-icons">track_changes</i></a></li>
+						<li><a href="#" class="btn-floating green"><i class="material-icons">publish</i></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<script src="assets/js/jquery-1.10.2.js"></script>
+		<script src="assets/js/bootstrap.min.js"></script>
+		<script src="assets/materialize/js/materialize.min.js"></script>
+		<script src="assets/js/jquery.metisMenu.js"></script>
+		<script src="assets/js/Lightweight-Chart/jquery.chart.js"></script>
+		<script src="assets/js/dataTables/jquery.dataTables.js"></script>
+		<script src="assets/js/dataTables/dataTables.bootstrap.js"></script>
+		<script type="text/javascript" src="./assets/plugins/layer/layer.js"></script>
+		
+		<script type="text/javascript" src="./pages/title.js"></script> 
+		<script type="text/javascript" src="./pages/common.js"></script>
+		<script type="text/javascript" src="./pages/systemSNCreate.js"></script> 
+		<script >
+			function jump(url) {
+				window.location = url;
+			}
+		</script> 
+	</body>
+</html>

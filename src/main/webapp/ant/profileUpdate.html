@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<link href="assets/css/icon.css" rel="stylesheet" />
+		<link href="assets/materialize/css/materialize.min.css" rel="stylesheet" media="screen,projection" />
+		<link href="assets/css/bootstrap.css" rel="stylesheet" />
+		<link href="assets/css/font-awesome.css" rel="stylesheet" />
+		<link href="assets/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
+		<link href="assets/css/custom-styles.css" rel="stylesheet" />
+		<link href='assets/css/font-awesome.css' rel='stylesheet' type='text/css' />
+		<link href="assets/js/Lightweight-Chart/cssCharts.css" rel="stylesheet"> 
+		<link rel="stylesheet" href="assets/css/common.css">
+	</head>
+
+	<body class="layer-body" style="background:#1E284A; color:#fff;">			
+		<div class="layer-card">
+			<div class="layer-card-content">
+				<div id="userId" style="display:none;"></div>
+				<div class="row">
+					<div class="input-field col s6">
+						<input id="username" type="text" value="" readonly>
+						<label for="username" class="myactive">账号名称（禁止修改）</label>
+					</div>
+					<div class="input-field col s6">
+						<input id="realname" type="text" value="" readonly>
+						<label for="realname" class="myactive">别名描述（禁止修改）</label>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="input-field col s6">
+						<select id="sex" class="my-form-select">
+							<option value="1">男</option>
+							<option value="2">女</option>
+						</select>
+						<label for="sex" class="myactive">性别</label>
+					</div>
+					<div class="input-field col s6">
+						<input id="role" type="text" value="" readonly>
+						<label for="role" class="myactive">角色</label>
+					</div>
+				</div>
+			
+				<div class="row">
+					<div class="input-field col s6">
+						<select id="dept" class="my-form-select">
+						</select>
+						<label for="dept" class="myactive">部门</label>
+					</div>
+					<div class="input-field col s6">
+						<input id="mobile" type="text" class="validate" value="">
+						<label for="mobile" class="myactive">移动电话</label>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="input-field col s12">
+						<input id="email" type="text" class="validate" value="">
+						<label for="email" class="myactive">电子邮件</label>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="input-field col s6" align="right">
+						<div>
+							<a href="#" onclick="updateUser()" class="waves-effect waves-light btn" style="background-color:#4083FF;">
+								保 存
+							</a>
+						</div>
+					</div>
+					<div class="input-field col s6">
+						<div>
+							<a href="#" onclick="window.parent.closeDialog()" class="waves-effect waves-light btn" style="background-color:#4083FF;">
+								返 回
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>		
+		</div>
+	</body>
+	
+	<script src="assets/js/jquery-1.10.2.js"></script>
+	<script src="assets/js/bootstrap.min.js"></script>
+	<script src="assets/materialize/js/materialize.min.js"></script>
+	<script src="assets/js/jquery.metisMenu.js"></script>
+	<script src="assets/js/Lightweight-Chart/jquery.chart.js"></script>
+	<script src="assets/js/dataTables/jquery.dataTables.js"></script>
+	<script src="assets/js/dataTables/dataTables.bootstrap.js"></script>
+	<script src="assets/js/custom-scripts.js"></script>
+	
+	<script type="text/javascript" src="./login/jquery.base64.js"></script>
+	<script type="text/javascript" src="./pages/common.js"></script>
+	<script type="text/javascript" src="./pages/profileUpdate.js"></script> 
+</html>

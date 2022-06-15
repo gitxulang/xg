@@ -1,0 +1,99 @@
+<html>
+	<head>
+		<title>安天涉密专用运维管理系统（涉密专用计算平台版）V3.0</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link rel="shortcut icon" href="#" />
+		<link rel="stylesheet" href="./login/css/layui.css"/>
+		<link rel="stylesheet" href="./login/css/lib.css"/>
+		<link rel="stylesheet" href="./login/css/login.css"/>
+		<!-- <link rel="stylesheet" href="./login/css/road.css"/> -->
+		<link href="assets/img/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+		<script type="text/javascript" src="./login/jquery-1.11.3.min.js"></script>		
+		<script type="text/javascript" src="./login/jquery.base64.js"></script>
+		<script type="text/javascript" src="./login/jquery.form.js"></script>		
+		<script type="text/javascript" src="./login/login.js"></script>
+		<script type="text/javascript" src="./assets/plugins/layer/layer.js"></script>	
+		<script type="text/javascript" src="./pages/common.js"></script>   
+		<style media="screen">
+			footer {
+				position: absolute;
+				bottom: 0;
+				width: 100%; height: 50px;
+			}
+			footer .context p {
+				font-family: PingFangSC-Regular;
+font-size: 14px;
+color: #FFFFFF;
+letter-spacing: 0;
+text-align: center;
+line-height: 14px;
+			}
+			.footer_bg {
+				position: absolute; bottom: 0; z-index: -1;
+				width: 100%; height: 300px;
+			}
+			@media (min-width: 1920px) {
+				body{
+					zoom:1.2;
+				}
+			}
+			.login_fields__submit input{
+				background-color: #4083FF;
+			}
+			.login-logo {
+				position:absolute;
+				top:10px;
+				left:60px;
+				width:107px;
+				height:30px;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div class="login-container">
+			
+			
+		</div>
+		<div class="left-container">
+				<div class="login">
+					<div class="login-content">
+						<div class="login-title">欢迎登录</div>				
+						<input id="username" name="username" type="text" maxlength="20"  value="" class="verify" placeholder="请输入你的账号" 
+							readonly autocomplete="off" onfocus="this.removeAttribute('readonly');" 
+							oncopy="return false" onpaste="return false" onselectstart="return false" />
+						<input id="password" name="password" type="text" maxlength="20" myvalue="" value="" class="verify" placeholder="请输入你的密码" 
+							readonly autocomplete="off" onfocus="this.removeAttribute('readonly')" onblur="this.setAttribute('readonly', 'readonly')" oninput="onInput()" 
+							oncopy="return false" onpaste="return false" onselectstart="return false"
+							style="text-security:disc; -webkit-text-security:disc; ime-mode:disabled"/>
+						<div class="login_fields__submit">
+							<input class="layui-btn layui-btn-normal submit" type='button' value='登 陆' onclick="onLogin()"/>
+						</div>
+					</div>
+
+					<div class="success">
+						<h2 class="i-green">认证成功</h2>
+						<p>正在进入系统...</p>
+					</div>
+				</div>
+				<div class="authent">
+					<img src="./login/img/puff.svg">
+					<p>认证中...</p>
+				</div>
+			</div>
+		<div class="right-container">
+				<div class="liuxing liuxing1 liuxingFla"></div>
+				<div class="liuxing liuxing2 liuxingFla2"></div>
+				<div class="liuxing liuxing3 liuxingFla3"></div>
+				<div class="liuxing liuxing4 liuxingFla4"></div>
+				<p class="title">安天涉密专用运维管理系统（涉密专用计算平台版）V3.0</p>
+				<div id="errorMsg" style="color:red;width:100%;margin-top:30px;text-align: center"></div>
+			</div>
+		<footer>
+			<div class="context">
+				<p>版权所有：哈尔滨安天科技集团股份有限公司</p>
+			</div>
+		</footer>
+		<img class="login-logo" src="./login/img/logo_login.png" alt="">
+	</body>
+</html>

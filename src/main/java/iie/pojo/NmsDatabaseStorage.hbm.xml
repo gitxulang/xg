@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="iie.pojo.NmsDatabaseStorage" table="nms_database_storage">
+        <id name="id" type="java.lang.Long">
+            <column name="id" />
+            <generator class="increment" />
+        </id>
+        <many-to-one name="nmsDatabaseStatus" class="iie.pojo.NmsDatabaseStatus" lazy="false" fetch="join">
+            <column name="status_id">
+                <comment>status_id关联nms_database_status表主键id</comment>
+            </column>
+        </many-to-one>
+        <property name="path" type="java.lang.String">
+            <column name="path" length="1024">
+                <comment>数据库存储数据路径</comment>
+            </column>
+        </property>
+        <property name="totalSize" type="java.lang.Long">
+            <column name="total_size" length="15">
+                <comment>数据库总存储容量，单位KB</comment>
+            </column>
+        </property>
+        <property name="usedSize" type="java.lang.Long">
+            <column name="used_size" length="15">
+                <comment>数据库已经使用的存储容量，单位KB</comment>
+            </column>
+        </property>
+        <property name="itime" type="java.sql.Timestamp">
+            <column name="itime" length="19" not-null="true">
+                <comment>入库时间</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

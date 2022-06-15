@@ -1,0 +1,128 @@
+﻿<!DOCTYPE html>
+<html> 
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>安天涉密专用运维管理系统（涉密专用计算平台版）V3.0</title>
+		<link href="assets/css/icon.css" rel="stylesheet" />
+		<link href="assets/materialize/css/materialize.min.css" rel="stylesheet" media="screen,projection" />
+		<link href="assets/css/bootstrap.css" rel="stylesheet" />
+		<link href="assets/css/font-awesome.css" rel="stylesheet" />
+		<link href="assets/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
+		<link href="assets/css/custom-styles.css" rel="stylesheet" />
+		<link href='assets/css/font-awesome.css' rel='stylesheet' type='text/css' />
+		<link href="assets/js/Lightweight-Chart/cssCharts.css" rel="stylesheet">
+		<link href="assets/css/common.css" rel="stylesheet">   
+	</head>
+
+	<body>
+		<div id="page-wrapper">
+			<div class="header"> 
+				<ol class="breadcrumb">
+					<li><a href="#">系统管理</a></li>
+					<li><a href="javascript:jumpPage('commonUser.html')">用户信息管理</a></li>
+					<li><a href="#">添加</a></li>
+				</ol> 						
+			</div>	
+			<div id="page-inner">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="card">
+							<!-- <div class="card-action">
+								新增用户
+							</div>	 -->		
+							<div class="card-content">
+								<form class="col s12">
+									<div class="row">
+										<div class="input-field col s6">
+											<input id="name" type="text" class="validate"/>
+											<label for="name" class="myactive">姓名<span style="color:#ff0000;" id="idUser">*</span></label>
+										</div>
+										<div class="input-field col s6">
+											<input id="card" type="text" class="validate"/>
+											<label for="card" class="myactive">唯一标识（保存后不可更改）<span style="color:red;" id="idCard">*</span></label>
+										</div>
+									</div>
+									<div class="row">
+										<div class="input-field col s6">
+											<select id="sex" class="my-form-select">
+												<option value="男"> 男</option>
+												<option value="女"> 女</option>
+											</select>
+											<label for="sex" class="myactive">性别</label>
+										</div>
+										<div class="input-field col s6">
+											<input id="birthDate" type="text" class="validate" readonly />
+											<label for="birthDate" class="myactive">出生日期</label>
+										</div>
+									</div>
+									<div class="row">
+										<div class="input-field col s6">
+											<input id="education" type="text" class="validate"/>
+											<label for="education" class="myactive">学历</label>
+										</div>
+										
+										<div class="input-field col s6">
+											<input id="nationality" type="text" class="validate"/>
+											<label for="nationality" class="myactive">民族</label>
+										</div>
+									</div>
+									<div class="row">
+										<div class="input-field col s12">
+											<select id="dept" class="my-form-select">
+											</select>
+											<label for="dept" class="myactive">单位部门</label>
+										</div>
+									</div>
+								</form>
+								
+								<div class="row">
+									<div class="col-md-6" align="right">
+										<div>
+											<a href="#" onclick="addUser()" class="waves-effect waves-light btn">
+												保 存
+											</a>
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div>
+											<a href="javascript:jumpPage('commonUser.html')" class="waves-effect waves-light btn">
+												返 回
+											</a>
+										</div>
+									</div>
+									
+								</div>
+								<div class="clearBoth"></div>
+							</div>
+						</div>
+					</div>	
+				</div>		
+				<div class="fixed-action-btn horizontal click-to-toggle">
+					<a class="btn-floating btn-large red">
+						<i class="material-icons">menu</i>
+					</a>
+					<ul>
+						<li><a href="hardWare.html" class="btn-floating red"><i class="material-icons">track_changes</i></a></li>
+						<li><a href="#" class="btn-floating green"><i class="material-icons">publish</i></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<script src="assets/js/jquery-1.10.2.js"></script>
+		<script src="assets/js/bootstrap.min.js"></script>
+		<script src="assets/js/bootstrap-datetimepicker.js"></script>
+		<script src="assets/materialize/js/materialize.min.js"></script>
+		<script src="assets/js/jquery.metisMenu.js"></script>
+		<script src="assets/js/Lightweight-Chart/jquery.chart.js"></script>
+		<script src="assets/js/dataTables/jquery.dataTables.js"></script>
+		<script src="assets/js/dataTables/dataTables.bootstrap.js"></script>
+		<script type="text/javascript" src="./assets/plugins/layer/layer.js"></script>	
+		
+		<script type="text/javascript" src="./pages/common.js"></script>
+		<script type="text/javascript" src="./pages/title.js"></script> 
+		<script type="text/javascript" src="./pages/commonUserAdd.js"></script>
+
+	</body>
+</html>

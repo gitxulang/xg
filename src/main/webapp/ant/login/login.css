@@ -1,0 +1,97 @@
+ @charset "utf-8";
+
+body { 
+	margin:0;
+	padding:0;
+	font-family:Georgia, "Times New Roman", Times, serif;
+	background: url(./img/background.jpg) no-repeat;
+	background-size:100% 100%;
+}
+
+.logo {
+	width:940px; 
+	height:56px;
+	position:absolute; 
+	left:50%; 
+	top:25%; 
+	margin-left:-300px;
+	color:#8DEEEE;
+	font-size:38px;
+	font-family:微软雅黑;
+}
+
+.login { 
+	background: url(./img/input_bg_box.png) no-repeat;
+	width:723px; 
+	height:360px;
+	text-align:center; 
+	position:absolute;
+	left:50%; 
+	top:55%; 
+	margin-left:-361px; 
+	margin-top:-170px;
+}
+
+.login_input {
+	width:560px; 
+	height:119px;  
+	float:left; 
+	margin-top:110px; 
+	margin-left:100px; 
+}
+
+.login_srk {
+	float:left; 
+	width:420px; 
+	margin-bottom:18px;
+	height:42px; 
+	line-height:42px;
+}
+
+.login_font {
+	font-size:20px; 
+	font-weight:bold; 
+	float:left; 
+	margin-top:3px; 
+	color:#fff;
+}
+
+.login_input_box {
+	background:url(./img/input_box.png) no-repeat;
+	width:329px; 
+	height:47px; 
+	line-height:47px;
+	border:0; 
+	padding-left:20px;
+	color:#fff;
+}
+
+.login_btn {
+	float:right;
+	width:135px;
+	height:123px;
+	margin-top:-70px;
+}
+
+.login_submit_btn {
+	border:none;
+	display:block;
+	background:url(./img/login_btn.png) no-repeat; 
+	width:135px; height:123px; 
+	font-size:0;  
+	line-height:0;  
+	text-indent:-9999px; 
+	cursor:pointer;
+}
+
+.login_submit_btn_hover {
+	border:none; 
+	display:block; 
+	background:url(./img/login_btn_hover.png) no-repeat; 
+	width:135px; 
+	height:123px; 
+	font-size:0;  
+	line-height:0;  
+	text-indent:-9999px; 
+	cursor:pointer;
+}

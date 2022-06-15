@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html> 
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>安天涉密专用运维管理系统（涉密专用计算平台版）V3.0</title>
+		<link href="#" rel="shortcut icon" />
+		<link href="assets/css/icon.css" rel="stylesheet" />
+		<link href="assets/materialize/css/materialize.min.css" rel="stylesheet" media="screen,projection" />
+		<link href="assets/css/bootstrap.css" rel="stylesheet" />
+		<link href="assets/css/font-awesome.css" rel="stylesheet" />
+		<link href="assets/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
+		<link href="assets/css/custom-styles.css" rel="stylesheet" />
+		<link href='assets/css/font-awesome.css' rel='stylesheet' type='text/css' />
+		<link href="assets/js/Lightweight-Chart/cssCharts.css" rel="stylesheet"> 
+		<link href="assets/img/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+		<style>
+			a:hover {text-decoration:none;}
+		</style>
+	</head>
+
+	<body>
+		<nav class="navbar navbar-default top-navbar">
+			<div class="navbar-header" style="width: 30%;">
+				<a class="navbar-brand waves-effect waves-dark" style="background: none; color: #f44336; width:100%;"><i class="large material-icons">track_changes</i>安天涉密专用运维管理系统（涉密专用计算平台版）V3.0</a>
+			</div>
+			<ul class="nav navbar-top-links navbar-right"> 
+				<li>
+					<a id="bell" class="dropdown-button waves-effect waves-dark" href="#" data-activates="dropdown2">
+						<i class="fa fa-bell fa-fw"></i> 
+						<i class="material-icons right">arrow_drop_down</i>
+					</a>
+				</li>
+				<li>
+					<a class="dropdown-button waves-effect waves-dark" href="#" data-activates="dropdown1">
+						<i class="fa fa-user fa-fw"></i>
+						<b><span id="user"></span></b> 
+						<i class="material-icons right">arrow_drop_down</i>
+					</a>
+				</li>
+			</ul>
+		</nav>
+
+		<ul id="dropdown1" class="dropdown-content">
+			<li id="user_info"><a href="#" onclick="updateProfile()"><i class="fa fa-user fa-fw"></i> 账号属性</a></li>
+			<li id="password_change"><a href="#" onclick="updatePassword()"><i class="fa fa-gear fa-fw"></i> 修改密码</a></li>
+			<li><a href="#" onclick="logout()"><i class="fa fa-sign-out fa-fw"></i> 注销系统</a></li>
+		</ul>
+		
+		<ul id="dropdown2" class="dropdown-content w250">
+			<li class="divider"></li>
+			<li>
+				<a class="text-left" href="#">
+					<strong><font color="red"><span id="alarm"></span></font></strong>
+				</a>
+			</li>
+		</ul>
+		
+		<div id="page-wrapper" style="margin: 0;">
+			<div class="header"> 
+				<ol class="breadcrumb">
+					<li><a href=""></a></li>
+					<li class="active"></li>
+				</ol> 						
+		    </div>
+	
+		    <div id="page-inner" style="margin-top: 15px;">
+			    <div class="dashboard-cards"> 
+					<div class="row">
+						<div class="col-xs-12 col-sm-4 col-md-4" style="padding:50px;">
+							<a href="./main.html" target="_self">
+							<div class="card horizontal cardIcon waves-effect waves-dark">
+								<div class="card-stacked red">
+									设备状态管理
+								</div>
+							</div>
+							</a> 
+						</div>
+						
+						<div class="col-xs-12 col-sm-4 col-md-4" style="padding:50px;">
+							<a href="http://127.0.0.1:8061/homePage/toIndex" target="_blank">
+							<div class="card horizontal cardIcon waves-effect waves-dark">
+								<div class="card-stacked blue">
+									软件安装管理
+								</div>
+							</div>
+							</a> 
+						</div>
+						
+						<div class="col-xs-12 col-sm-4 col-md-4" style="padding:50px;">
+							<a href="http://127.0.0.1:8061/homePage/toIndex" target="_blank">
+							<div class="card horizontal cardIcon waves-effect waves-dark">
+								<div class="card-stacked green">
+									基础数据管理
+								</div>
+							</div>
+							</a>  
+						</div>
+					</div>
+				</div>
+		    </div>
+	    </div>
+		
+		<script src="assets/js/jquery-1.10.2.js"></script>
+		<script src="assets/js/bootstrap.min.js"></script>
+		<script src="assets/materialize/js/materialize.min.js"></script>
+		<script src="assets/js/jquery.metisMenu.js"></script>
+		<script src="assets/js/easypiechart.js"></script>
+		<script src="assets/js/easypiechart-data.js"></script>
+		<script src="assets/js/Lightweight-Chart/jquery.chart.js"></script>
+		<script type="text/javascript" src="./assets/plugins/layer/layer.js"></script>	
+		
+		<script type="text/javascript" src="./pages/common.js"></script>
+		<script type="text/javascript" src="./pages/title.js"></script> 
+	<!-- 	<script type="text/javascript" src="./pages/home.js"></script>  -->
+		<script type="text/javascript">
+			var width = $("div.card").width()
+			$("div.card").css("height", width + "px")
+			$("div.card").css("border-radius", "50%")
+			$("div.card-stacked").css("line-height", width + "px")
+			$("div.card-stacked").css("text-align", "center")
+			$("div.card-stacked").css("font-size", (width * 0.05)+"px")
+		</script>
+	</body>
+</html>

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>拓扑管理</title>
+		 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+	    <link rel="stylesheet" type="text/css" href="./css/netTopo.css"/>
+		<link rel="stylesheet" type="text/css" href="./css/showMap.css"/>
+	    <link rel="stylesheet" type="text/css" href="./css/loading.css"/>
+	    <link rel="shortcut icon" type="image/x-icon" href="../assets/img/favicon.ico"/>
+		<script type="text/javascript" src="../assets/js/jquery-1.10.2.js"></script>
+		<script type="text/javascript" src="../pages/common.js"></script>
+	    <script type="text/javascript" src="../assets/plugins/layer/layer.js"></script>
+	   <!--  <script type="text/javascript" src="./js/jtopo-0.4.8-min.js"></script> -->
+	    <script type="text/javascript" src="./js/jtopo-0.4.8.1.js"></script>
+	    
+	 	<script type="text/javascript" src="./js/zoom.js"></script>
+		<script type="text/javascript" src="./js/global.js"></script>
+		<script type="text/javascript" src="../pages/title.js"></script>
+	    <script type="text/javascript" src="./js/rightMenu.js"></script>
+		<script type="text/javascript" src="./js/toolbar.js"></script>
+	    <script type="text/javascript" src="./js/netTopo.js"></script>
+	    <script type="text/javascript" src="./js/showMap.js"></script>
+	    <style>
+	    	body{
+	    		background: #171E35;
+				overflow:auto;
+	    	}
+	    	#centertitle{
+	    		font-family: PingFangSC-Regular;
+				font-size: 24px;
+				color: #FFFFFF;
+				line-height: 24px;
+	    	}
+	    	.display, #select_topo{
+	    		background:#18213D;
+	    	}
+	    	#select_topo{
+	    		border: 1px solid #506099;
+	    	}
+	    	.toolbar_table{
+	    		color: #fff;
+	    		width:220px;
+	    		z-index:0;
+	    	}
+	    	.toolbar_table span{
+	    		position:relative;
+	    		top:-10px;
+	    		left:10px;
+	    	}
+	    </style>
+	</head>
+
+	<body>
+		<div id="sys-loading">
+			<div class="spinner">
+				<div class="loader-inner line-scale-pulse-out-rapid">
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+				</div>
+			</div>
+		</div>
+
+		<div class="top-topo">
+			<table width="100%" height="40" border="0" cellspacing="0" cellpadding="0" align="center">
+				<tr>
+					<td>
+						<table width="100%" height="40" border="0" cellpadding="0" cellspacing="0" align="center" id="head_table">
+							<tr>
+								<td class="display" width="10px" align="left" valign="middle">
+		                            <input type="checkbox" id="checkbox" name="checkbox" checked="true" class="checkbox" onclick="showToolBar();" title="显示工具栏"/>
+		                        </td>
+		                        <td class="display" width="100px" align="left" valign="middle">
+		                            <font><div class="show">操作面板</div></font>
+		                        </td>
+
+		                        <td id="" align="middle" valign="middle">
+		                            <strong><label id="centertitle" hidden></label></strong>
+		                        </td>
+
+		                        <td class="display" width="200px" align="right" valign="middle">
+		                            <select id="select_topo" name="submapview" onchange="changeView()" class="select_topo">
+		                                <option value="">选择拓扑图</option>
+		                            </select>
+		                        </td>
+		                    </tr>
+		                </table>
+		            </td>
+		        </tr>
+		    </table>
+		</div>
+
+		<div id="rp_list" class="rp_list display">
+		    <div id="toolbar_table" class="toolbar_table">
+		        <table width="100%" height="100%" cellpadding="2" cellspacing="0" border="0">
+		            <tr>
+		                <td width="25" height="40">
+		                    <input id="addNodes" type="button" name="addNodes"
+	                           class="button_addnodes_out"
+	                           onmouseover="buttonAddNodesOver();"
+	                           onmouseout="buttonAddNodesOut();" title="添加真实设备"/><span>添加真实设备</span>
+		                </td>
+		            </tr><tr>
+		                <td width="25" height="40">
+							<input id="createEntityLink" type="button" name="createEntityLink"
+	                           class="button_create_entity_link_out"
+	                           onmouseover="buttonCreateEntityLinkOver();"
+	                           onmouseout="buttonCreateEntityLinkOut();" title="添加真实连线"/><span>添加真实连线</span>
+		                </td>
+					</tr>
+					<!-- 新增管理可用域功能 -->
+					</tr><tr>
+						<td width="25" height="40">
+							<input id="manageTopoArea" type="button" name="manageTopoArea"
+								class="button_create_topo_area_out"
+								onmouseover="buttonManageTopoAreaOver();"
+								onmouseout="buttonManageTopoAreaOut();" title="管理可用域"/><span>管理可用域</span>
+						</td>
+					</tr>
+					 <!-- <tr>
+		                <td width="25" height="40">
+							<input id="createDemoObj" type="button" name="createDemoObj"
+	                           class="button_create_hint_meta_out"
+	                           onmouseover="buttonCreateHintMetaOver();"
+	                           onmouseout="buttonCreateHintMetaOut();"title="添加虚拟设备"/><span>添加虚拟设备</span>
+		                </td>
+					</tr> 
+					<tr>
+		                <td width="25" height="40">
+		                    <input id="createHintLink" type="button" name="createHintLink"
+	                           class="button_create_hint_link_out"
+	                           onmouseover="buttonCreateHintLinkOver();"
+	                           onmouseout="buttonCreateHintLinkOut();"" title="添加虚拟连线"/><span>添加虚拟连线</span>
+		                </td>
+					</tr>  -->
+					<tr>
+		         		<td width="25" height="40">
+		                    <input id="createSubMap" type="button" name="createSubMap"
+	                           class="button_create_submap_out"
+	                           onmouseover="buttonCreateSubMapOver();"
+	                           onmouseout="buttonCreateSubMapOut();" title="创建拓扑子图"/><span>创建拓扑子图</span>
+		                </td>
+		            </tr><tr>
+		                <td width="25" height="40" style="display:none">
+		                    <input id="deleteSubMap" type="button" name="deleteSubMap"
+	                           class="button_delete_map_out"
+	                           onmouseover="buttonDeleteSubMapOver();"
+	                           onmouseout="buttonDeleteSubMapOut();" title="删除当前拓扑"/><span>删除当前拓扑</span>
+		                </td>
+		            </tr><tr>	                
+		                <td width="25" height="40">
+		                    <input id="editMap" type="button" name="editmap"
+	                           class="button_editmap_out"
+	                           onmouseover="buttonEditMapOver();"
+	                           onmouseout="buttonEditMapOut();" title="修改拓扑名称"/><span>修改拓扑名称</span>
+		                </td>
+					</tr>
+					<!-- <tr>
+		                <td width="25" height="40">
+		                    <input id="horizonArrange" type="button" name="horizonArrange"
+	                           class="button_horizon_arrange_out"
+	                           onmouseover="buttonHorizonArrangeOver();"
+	                           onmouseout="buttonHorizonArrangeOut();" title="网元水平对齐"/><span>水平对齐</span>
+		                </td>
+					</tr> -->
+					<!-- <tr>
+		                <td width="25" height="40">
+		                    <input id="verticalArrange" type="button" name="verticalArrange"
+	                           class="button_vertical_arrange_out"
+	                           onmouseover="buttonVerticalArrangeOver();"
+	                           onmouseout="buttonVerticalArrangeOut();" title="网元垂直对齐"/><span>垂直对齐</span>
+		                </td>
+					</tr> -->
+					<!-- <tr>
+		                <td width="25" height="40">
+		                    <input id="refresh" type="button" name="refresh"
+	                           class="button_refresh_out"
+	                           onmouseover="buttonRefreshOver();"
+	                           onmouseout="buttonRefreshOut();" title="刷新当前拓扑"/><span>刷新当前拓扑</span>
+		                </td>
+					</tr> -->
+					<!-- <tr>
+		             	<td width="25" height="40">
+		                    <input id="openEditArea" type="button" name="openEditArea"
+	                           class="button_edit_area_open_out"
+	                           onmouseover="buttonEditAreaOpenOver();"
+	                           onmouseout="buttonEditAreaOpenOut();"title="开启编辑虚线框功能"/><span>开启编辑虚线框功能</span>
+		                </td>
+					</tr> -->
+					<!-- <tr>
+		                <td width="25" height="40">
+		                    <input id="closeEditArea" type="button" name="closeEditArea"
+	                           class="button_edit_area_close_out"
+	                           onmouseover="buttonEditAreaCloseOver();"
+	                           onmouseout="buttonEditAreaCloseOut();"title="保存编辑虚线框功能"/><span>保存编辑虚线框功能</span>
+		                </td>
+					</tr> -->
+					<tr>
+ 		                <td width="25" height="40">
+		                    <input id="view" type="button" name="view"
+	                           class="button_view_out"
+	                           onmouseover="buttonViewOver();"
+	                           onmouseout="buttonViewOut();"  title="返回系统首页"/><span>返回系统首页</span>
+		                </td>       
+		            </tr>
+		        </table>
+		    </div>
+		</div>
+		 <iframe id="cTopo" src="showMap.html"></iframe> 
+	</body>
+</html>
+

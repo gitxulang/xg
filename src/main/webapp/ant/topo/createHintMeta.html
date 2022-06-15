@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<link rel="stylesheet" type="text/css" href="./css/createHintMeta.css"/>
+		<script type="text/javascript" src="../assets/js/jquery-1.10.2.js"></script>
+		<script type="text/javascript" src="../pages/common.js"></script>
+		<script type="text/javascript" src="./js/createHintMeta.js"></script>
+		<style>
+			body{
+				background:#1E284A;
+			}
+		</style>
+	</head>
+
+	<body>
+		<form id="mainForm" method="post" name="mainForm">
+			<input type="hidden" id="current_topo_map" name="current_topo_map"/>
+			<table border="0" cellpadding="0" cellspacing="5" width="100%" align="center">
+				<tr>
+					<td colspan="2"><br/></td>
+				</tr>
+
+				<tr>
+					<td align="right" height="48" width="35%">
+						<div class="label_add_meta_node">添加虚拟节点名称：</div>
+					</td>
+					<td>
+						<input type="text" id="meta_name" name="meta_name" value="虚拟设备" class="input_add_meta_node"/>
+					</td>
+				</tr>
+
+				<tr>						
+					<td align="right" height="48" width="35%">
+						<div class="label_add_meta_node">添加虚拟设备类型：</div>
+					</td>				
+					<td align="left" width="20%">
+						<select size="1" name="hint_meta_select" id="hint_meta_select" class="select_add_meta_node" onchange="changeIcon()"></select>
+					</td>
+				</tr>
+			   	
+			   	<tr>						
+					<td align="right" height="48" width="35%">
+						<div class="label_add_meta_node">选择可用域：</div>
+					</td>				
+					<td align="left" width="20%">
+						<select id="colled_mode" class="select_add_meta_node" >'
+							<option value="1">应用服务域</option>
+							<option value="2">管理服务域</option>
+							<option value="3">用户操作区</option>
+							<option value="4">管理操作区</option>
+						</select>
+					</td>
+				</tr>
+													                 										                      								
+				<tr>
+					<td colspan="2" align="center">
+						<br/>
+						<img src="./img/save.png" style="cursor:pointer;" onclick="save()"/>&nbsp;&nbsp;&nbsp;&nbsp;
+					    <img src="./img/close.png" style="cursor:pointer;" onclick="closeDialog()"/>
+					</td>	
+				</tr>
+			</table>									
+		</form>
+	</body>
+</html>

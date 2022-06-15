@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html> 
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>安天涉密专用运维管理系统（涉密专用计算平台版）V3.0</title>
+		<link href="assets/css/icon.css" rel="stylesheet" />
+		<link href="assets/materialize/css/materialize.min.css" rel="stylesheet" media="screen,projection" />
+		<link href="assets/css/bootstrap.css" rel="stylesheet" />
+		<link href="assets/css/font-awesome.css" rel="stylesheet" />
+		<link href="assets/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
+		<link href="assets/css/custom-styles.css" rel="stylesheet" />
+		<link href='assets/css/font-awesome.css' rel='stylesheet' type='text/css' />
+		<link href="assets/js/Lightweight-Chart/cssCharts.css" rel="stylesheet"> 
+
+		<style>
+			.layer{position:relative;width:100%;}
+			#layer01{}
+			#layer01 img{text-align: center;display: block;height: 35px;padding-top: 35px;margin: auto;}
+			#layer02 > div{height:100%;float:left;position:relative;}
+			.layer02-data{position: absolute;width: auto;height: 100px;top: 45px;left: 65px;}
+			.layer03-panel{height:100%;position:relative;float:left;}
+			.layer03-left-label{position:absolute;}
+			#layer03_left_label01{top:10px;left:10px;height:20px;width:200px;font-weight: bold;}
+			#layer03_left_label02{right:10px;top:10px;color:#036769;height:20px;width:200px;}
+			.layer03-left-chart{position:relative;float:left;height:100%;}
+			#layer03_right_label{position:absolute;top:10px;left:10px;height:20px;width:100px;}
+			.layer03-right-chart{position:relative;float:left;height:100%;width:32%;}
+			.layer03-right-chart-label{text-align: center;width: 130px; margin-left: 20px;}
+			.layer04-panel{position:relative;float:left;height:100%;width:48%;}
+			.layer04-panel-label{width:100%;height:15%;padding-top:5px;}
+			.layer04-panel-chart{width:100%;height:85%;}
+
+			.ip_tr{
+				text-align: center;
+				line-height: 20px;
+			}
+
+			.ip_tr td{
+				text-align: center;
+			}
+
+			.ip_tr td:hover{
+				background-color: #f5f5f5;
+				cursor: pointer;
+			}
+
+			.ip_tr td.offline{
+				background-color: #808080;
+				cursor: pointer;
+			}
+
+			.ip_tr td.alarm1{
+				background-color: yellow;
+				cursor: pointer;
+			}
+
+			.ip_tr td.alarm2{
+				background-color: red;
+				cursor: pointer;
+			}
+
+			div.online{
+				width: 60px;
+			    height: 25px;
+			    border: 1px solid #d3d3d3;
+			    float: left;
+			    margin-right: 5px;
+			}
+
+			div.offline{
+				width: 60px;
+				background-color: #808080;
+			    height: 25px;
+			    float: left;
+			    margin-right: 5px;
+			}
+
+			div.alarm1{
+				width: 60px;
+				background-color: yellow;
+			    height: 25px;
+			    float: left;
+			    margin-right: 5px;
+			}
+
+			div.alarm2{
+				width: 60px;
+				background-color: red;
+			    height: 25px;
+			    float: left;
+			    margin-right: 5px;
+			}
+
+			div.relative_left{
+				position: relative;
+				right: 100px;
+			}
+
+		</style>
+		<script src="assets/js/jquery-1.10.2.js"></script>
+		<script src="assets/js/echarts.min.js"></script>
+		<script src="assets/js/monitor.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				drawLayer02Label($("#layer02_01 canvas").get(0),"子网网段",80,200);
+				drawLayer02Label($("#layer02_02 canvas").get(0),"子网掩码",80,300);
+				drawLayer02Label($("#layer02_03 canvas").get(0),"子网名称",80,400);
+				drawLayer02Label($("#layer02_04 canvas").get(0),"所属部门",50,200);
+				drawLayer02Label($("#layer02_05 canvas").get(0),"IP容量",40,200);
+
+				renderLegend();
+
+				//饼状图
+				renderChartBar01();
+				//renderChartBar02();
+
+				//存储
+				renderLayer03Right();
+
+				//30天日均线流量趋势
+				renderLayer04Left();
+
+				//小统计
+				renderLayer04Right();
+			});
+	  </script>
+	</head>
+
+	<body>
+		<div id="page-wrapper">
+			<div class="header"> 
+				<ol class="breadcrumb">
+					<li><a href="#">IP地址管理</a></li>
+					<li class="active">子网内IP管理</li>
+				</ol> 						
+			</div>
+
+			<!-- CONTENT  -->
+			<div id="page-inner">
+				<div class="card" style="margin: 10px auto; padding: 0 10%;"> 
+					<div id="layer02" class="layer row" style="height:15%;">
+						<div id="layer02_01">
+							<div class="layer02-data">
+								<span style="font-size:26px;">192.168.1.0</span>
+								<span style="font-size:16px;"></span>
+							</div>
+							<canvas width="200" height="100"></canvas>
+						</div>
+						<div id="layer02_02" style="width:20%;">
+							<div class="layer02-data">
+								<span style="font-size:26px;">255.255.255.0</span>
+								<span style="font-size:16px;"></span>
+							</div>
+							<canvas width="200" height="100"></canvas>
+						</div>
+						<div id="layer02_03" style="width:15%;">
+							<div class="layer02-data">
+								<span style="font-size:26px;">网络组</span>
+								<span style="font-size:16px;"></span>
+							</div>
+							<canvas width="200" height="100"></canvas>
+						</div>
+						<div id="layer02_04" style="width:20%;">
+							<div class="layer02-data">
+								<span style="font-size:26px;">信工所四室</span>
+								<span style="font-size:16px;"></span>
+							</div>
+							<canvas width="200" height="100"></canvas>
+						</div>
+						<div id="layer02_05" style="width:10%;">
+							<div class="layer02-data">
+								<span style="font-size:26px;">254</span>
+								<span style="font-size:16px;"></span>
+							</div>
+							<canvas width="150" height="100"></canvas>
+						</div>
+					</div>
+					<div id="layer03" class="layer row" style="height:40%;">
+						<div id="layer03_left" style="width:48%;" class="layer03-panel">
+							<div id="layer03_left_label01" class="layer03-left-label">接入机型占比</div>
+							<!--
+							<div id="layer03_left_label02" class="layer03-left-label">(左)在线数量 (右)上线率</div>
+							-->
+							<div id="layer03_left_01" class="layer03-left-chart" style="width:16%;">
+								<canvas width="100" height="200" style="margin:30px 0 0 20px;"></canvas>
+							</div>
+							
+							<div id="layer03_left_02" class="layer03-left-chart" style="width:80%; height: 220px;"></div>
+							<!--
+							<div id="layer03_left_03" class="layer03-left-chart" style="width:80%;"></div>
+							-->
+						</div>
+						<div id="layer03_right" style="width:50%;" class="layer03-panel">
+							<div id="layer03_right_label">IP统计</div>
+							<div id="layer03_right_chart01" class="layer03-right-chart">
+								<canvas width="130" height="150" style="margin:40px 0 0 20px;"></canvas>
+								<div class="layer03-right-chart-label">在线已登记</div>
+							</div>
+							<div id="layer03_right_chart02" class="layer03-right-chart">
+								<canvas width="130" height="150" style="margin:40px 0 0 20px;"></canvas>
+								<div class="layer03-right-chart-label">在线未登记</div>
+							</div>
+							<div id="layer03_right_chart03" class="layer03-right-chart">
+								<canvas width="130" height="150" style="margin:40px 0 0 20px;"></canvas>
+								<div class="layer03-right-chart-label">在线非法占用</div>
+							</div>
+						</div>
+					</div>
+					<div id="layer04" class="layer row" style="height:30%;">
+						<div id="layer04_left" class="layer04-panel">
+							<div id="layer04_left_label" class="layer04-panel-label">30天日非法IP变化趋势</div>
+							<div id="layer04_left_chart" class="layer04-panel-chart" style="width: 100%; height: 220px;"></div>
+						</div>
+						<div id="layer04_right" class="layer04-panel">
+							<div id="layer04_right_label" class="layer04-panel-label">
+								<span>IP数量</span><span style="color:#00A09A;"></span>
+							</div>
+							<div id="layer04_right_chart" class="layer04-panel-chart" style="width: 100%; height: 220px;"></div>
+						</div>
+					</div>
+				</div>
+			
+				<div class="row">
+					<div class="col-md-12">
+						<div class="card">
+							<div class="card-content">
+								<div class="row">
+									<div class="col-md-1">
+										<div class="online"></div>
+										<span>在线</span>
+									</div>
+									
+									<div class="col-md-1">
+										<div class="offline"></div>
+										<span>离线</span>
+									</div>
+
+									<div class="col-md-2">
+										<div class="alarm1"></div>
+										<span>在线未登记</span>
+									</div>
+
+									<div class="col-md-2 relative_left">
+										<div class="alarm2"></div>
+										<span>在线非法占用</span>
+									</div>
+									
+									<div class="col-md-5">
+										<!--
+										<div>
+											<label>搜索</label>
+											<label>
+												<input type="search" class="form-control1">
+											</label>
+										</div>
+									-->
+									</div>
+									
+									<div class="col-md-1">
+										<div align="right">
+											<a href="ipAddressDetail.html" class="waves-effect waves-light btn">
+											<!--	<i class="material-icons right">add</i> -->
+												新 增
+											</a>
+										</div>
+									</div>
+								</div>
+							
+								<div class="table-responsive">
+									<table class="table table-bordered" id="tableID">
+										<thead>
+											<tr>
+												<th class="center">网段</th>
+												<th colspan="20" style="text-align: center;">地址</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr class="odd gradeX ip_tr">
+												<td class="center"><input type="checkbox" checked/>192.168.1.1</td>
+												<td>1</td>
+												<td>2</td>
+												<td>3</td>
+												<td>4</td>
+												<td>5</td>
+												<td>6</td>
+												<td class="offline">7</td>
+												<td>8</td>
+												<td>9</td>
+												<td>10</td>
+												<td>11</td>
+												<td>12</td>
+												<td class="alarm2">13</td>
+												<td>14</td>
+												<td class="alarm1">15</td>
+												<td>16</td>
+												<td>17</td>
+												<td>18</td>
+												<td>19</td>
+												<td class="alarm1">20</td>
+											</tr>
+											<tr class="odd gradeX ip_tr">
+												<td class="center"><input type="checkbox" checked/>192.168.1.21</td>
+												<td>21</td>
+												<td>22</td>
+												<td>23</td>
+												<td>24</td>
+												<td>25</td>
+												<td>26</td>
+												<td>27</td>
+												<td class="alarm1">28</td>
+												<td>29</td>
+												<td>30</td>
+												<td>31</td>
+												<td class="offline">32</td>
+												<td>33</td>
+												<td>34</td>
+												<td>35</td>
+												<td>36</td>
+												<td>37</td>
+												<td class="offline">38</td>
+												<td>39</td>
+												<td class="alarm2">40</td>
+											</tr>
+											<tr class="odd gradeX ip_tr">
+												<td class="center"><input type="checkbox" checked/>192.168.1.41</td>
+												<td>41</td>
+												<td>42</td>
+												<td class="alarm1">43</td>
+												<td>44</td>
+												<td>45</td>
+												<td>46</td>
+												<td class="offline">47</td>
+												<td>48</td>
+												<td>49</td>
+												<td>50</td>
+												<td>51</td>
+												<td>52</td>
+												<td class="offline">53</td>
+												<td class="offline">54</td>
+												<td>55</td>
+												<td class="alarm2">56</td>
+												<td>57</td>
+												<td>58</td>
+												<td class="offline">59</td>
+												<td class="offline">60</td>
+											</tr>
+											<tr class="odd gradeX ip_tr">
+												<td class="center"><input type="checkbox" checked/>192.168.1....</td>
+												<td colspan="20">......</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+								
+								
+								
+								<div class="row">
+									<div class="col-sm-6">
+										<!--
+										<div class="pagination">
+											<label>
+												<select class="form-control input-sm">
+													<option value="10">10</option>
+													<option value="25">25</option>
+													<option value="50">50</option>
+													<option value="100">100</option>
+												</select> 
+											</label>
+											<label>
+												记录 / 页，第 1/10 页
+											</label>
+										</div>
+									-->
+									</div>
+									
+									<div class="col-sm-6">
+										<!--
+										<div class="dataTables_paginate paging_simple_numbers" align="right">
+											<ul class="pagination">
+												<li class="paginate_button previous" tabindex="0" id="dataTables-example_previous">
+													<a href="#">首页</a>
+												</li>
+												<li class="paginate_button" tabindex="0">
+													<a href="#">上一页</a>
+												</li>
+												<li class="paginate_button " tabindex="0">
+													<a href="#">下一页</a>
+												</li>
+												<li class="paginate_button next" tabindex="0">
+													<a href="#">尾页</a>
+												</li>
+											</ul>
+										</div>
+									-->
+									</div>
+								</div>
+								
+                            
+							</div>
+						</div>
+					</div>
+				</div>
+               
+
+				<div class="fixed-action-btn horizontal click-to-toggle">
+					<a class="btn-floating btn-large red">
+						<i class="material-icons">menu</i>
+					</a>
+					<ul>
+						<li><a href="hardWare.html" class="btn-floating red"><i class="material-icons">track_changes</i></a></li>
+						<li><a href="#" class="btn-floating green"><i class="material-icons">publish</i></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<script src="assets/js/bootstrap.min.js"></script>
+		<script src="assets/materialize/js/materialize.min.js"></script>
+		<script src="assets/js/jquery.metisMenu.js"></script>
+		<script src="assets/js/Lightweight-Chart/jquery.chart.js"></script>
+		<script src="assets/js/dataTables/jquery.dataTables.js"></script>
+		<script src="assets/js/dataTables/dataTables.bootstrap.js"></script>
+		<script>
+			$(document).ready(function () {
+			//    $('#dataTables-example').dataTable();
+			});
+			$(".ip_tr td").on("click", function(){
+				window.location.href="ipAddressDetail.html" 
+			});
+		</script>
+		<script src="assets/js/tablecommon.js"></script>
+	</body>
+</html>

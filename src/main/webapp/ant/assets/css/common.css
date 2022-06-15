@@ -1,0 +1,144 @@
+body{
+	background: #171E35;
+}
+.header .breadcrumb li a{
+	font-family: PingFangSC-Regular;
+	font-size: 14px;
+	color: #98ACD9;
+}
+@media(min-width: 768px) {
+	#page-wrapper {
+		background:rgb(18,23,40);
+	}
+	/* 表格按钮 */
+	.card .card-content .row .btn, .card .card-content .row .my-btn{
+		background-color:#4083FF;
+	}
+	/* 表单区域 */
+	.card .card-content, .card .my-card-content, .card .my-card-content .tabs{
+		background-color:#192038;
+		color: #fff;
+		border: 1px solid #202F61;
+		border-radius: 2px;
+	}
+	.table-striped>tbody>tr:nth-of-type(odd){
+		background-color:#1E2747;
+	}
+	.table-striped>tbody>tr:hover{
+		background-color:#22336E;
+	}
+	.table-striped>thead>tr>th,.table-striped>tbody>tr>td{
+		border:none;
+	}
+	.table-striped>thead,.table-striped>tbody,.table-striped{
+		border:none;
+	}
+	.card .my-card-content .tabs .tab{
+		background:rgba(0,0,0,0);
+	}
+	.card .my-card-content .tabs .tab a{
+		color:#fff;
+	}
+	.card .my-card-content .tabs .tab a:hover{
+		color: #22B37A;
+		background:rgba(0,0,0,0);
+		border-style:none;
+		border-bottom: thick solid #22B37A;
+	}
+	.card .my-card-content .tabs .tab .active{
+		color:#22B37A;
+		background:rgba(0,0,0,0);
+		border-style:none;
+		border-bottom:thick solid #22B37A;
+	}
+	#page-inner>.card-action{
+		background:rgba(0,0,0,0) !important;
+	}
+	/* 选择框 */
+	.form-control{
+		background-color: #18213D;
+		border: 1px solid #4083FF;
+		border-radius: 2px;
+		color:#fff;
+	}
+	/* input[type=search]{
+		background: #18213D;
+		border: 1px solid #5D6FB2;
+		border-radius: 2px;
+	} */
+	input[type=text],input[type=search],input[type=password], input[type=email], input[type=url], input[type=time], input[type=date], input[type=datetime], input[type=datetime-local], input[type=tel], input[type=number], input[type=search]{
+		border: 1px solid #5D6FB2;
+		border-radius: 2px;
+		background: #18213D;
+		margin:10px 0px;
+	}
+	.my-form-select{
+		background-color:#18213D;
+	}
+	/* 表单控制栏 */
+	.pagination{
+		float:right;
+	}
+	.dataTables_paginate>ul{
+		float:right;
+	}
+	/* 隐藏底部快捷键 */
+	#page-inner .fixed-action-btn .horizontal .click-to-toggle{
+		display: none;
+	}
+	/* 表单控制栏-分页显示-数目 */
+	.table-page-num{
+		
+	}
+	::-webkit-scrollbar{
+		width: 5px;
+		height: 5px;
+		background-color: #fff;
+	}
+}
+
+
+/* 首页统计 */
+.dashboard-cards{
+/* 	display:none; */
+}
+/* 日期选择 */
+.table-condensed{
+	/* background-color:#18213D; */
+	background-color:#d9edf7;
+	color:black;
+}
+.my-card-content a:hover{
+	cursor:pointer;
+}
+
+/* 监控管理-子页面表单 */
+.table-responsive{
+	background: #151B30;
+	color:#fff;
+}
+.table-responsive .table>tbody>tr>td.success{
+	background: #151B30;
+	border:none;
+}
+.table-responsive .table>tbody>tr>td.my-table-col{
+	background: #151B30;
+	color:#98ACD9;
+	border:none;
+}
+input[type=text],input[type=search],input[type=password], input[type=email], input[type=url], input[type=time], input[type=date], input[type=datetime], input[type=datetime-local], input[type=tel], input[type=number], input[type=search]{
+	border: 1px solid #5D6FB2;
+	border-radius: 2px;
+	background: #18213D;
+    margin: 10px 0px;
+}
+/* 滚动条样式 */
+::-webkit-scrollbar{
+	width: 5px;
+	height: 5px;
+	background-color: #fff;
+}
+.timer{
+	margin-top: 0px !important;
+	color: #fff !important;
+}

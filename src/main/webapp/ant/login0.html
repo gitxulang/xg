@@ -1,0 +1,40 @@
+<html lang="en">
+	<head>
+		<title>安天涉密专用运维管理系统（涉密专用计算平台版）V3.0</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link  type="text/css" href="./login/login.css" rel="stylesheet" />
+		<link href="assets/img/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+		<script type="text/javascript" src="./login/jquery-1.11.3.min.js"></script>		
+		<script type="text/javascript" src="./pages/common.js"></script>    
+		<script type="text/javascript" src="./login/jquery.base64.js"></script>
+		<script type="text/javascript" src="./login/jquery.form.js"></script>		
+		<script type="text/javascript" src="./login/login.js"></script>
+		<script type="text/javascript" src="./assets/plugins/layer/layer.js"></script>	
+	</head>	
+
+	<body>
+		<div class="logo">安天涉密专用运维管理系统（涉密专用计算平台版）V3.0</div>
+		<div class="login">
+			<div class="login_input">
+				<div class="login_srk">
+					<span class="login_font">用户名：</span>
+					<input id="username" name="username" type="text" maxlength="20"  value="" class="login_input_box" placeholder="账号" 
+						readonly autocomplete="off" onfocus="this.removeAttribute('readonly');" 
+						oncopy="return false" onpaste="return false" onselectstart="return false" />
+				</div>
+				<div class="login_srk">
+					<span class="login_font">密&nbsp;&nbsp;&nbsp;&nbsp;码：</span>
+					<input id="password" name="password" type="text" maxlength="20" myvalue="" value="" class="login_input_box" placeholder="密码" 
+						readonly autocomplete="off" onfocus="this.removeAttribute('readonly')" onblur="this.setAttribute('readonly', 'readonly')" oninput="onInput()" 
+						oncopy="return false" onpaste="return false" onselectstart="return false"
+						style="text-security:disc; -webkit-text-security:disc; ime-mode:disabled"/>
+				</div>
+				<div class="login_btn">
+					<input id="login" type="button" class="login_submit_btn" onclick="onLogin()" />
+				</div>
+  				</div>
+  				<div id="errorMsg" style="color:red; width: 100%; margin-top: 260px;"></div>   				
+		</div>
+	</body>
+</html>
+

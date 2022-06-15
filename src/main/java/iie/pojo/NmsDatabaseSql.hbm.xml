@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="iie.pojo.NmsDatabaseSql" table="nms_database_sql">
+        <id name="id" type="java.lang.Long">
+            <column name="id" />
+            <generator class="increment" />
+        </id>
+        <many-to-one name="nmsDatabaseStatus" class="iie.pojo.NmsDatabaseStatus" lazy="false" fetch="join">
+            <column name="status_id">
+                <comment>status_id关联nms_database_status表主键id</comment>
+            </column>
+        </many-to-one>
+        <property name="slowSql" type="java.lang.String">
+            <column name="slow_sql" length="4096">
+                <comment>数据库执行的慢SQL语句</comment>
+            </column>
+        </property>
+        <property name="execTime" type="java.lang.Long">
+            <column name="exec_time" length="15">
+                <comment>慢SQL语句执行时间，单位毫秒</comment>
+            </column>
+        </property>
+        <property name="itime" type="java.sql.Timestamp">
+            <column name="itime" length="19" not-null="true">
+                <comment>入库时间</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

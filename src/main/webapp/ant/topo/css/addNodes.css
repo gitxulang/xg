@@ -1,0 +1,135 @@
+
+body {
+	margin:0;
+	padding:0;
+	background:#18213D;
+
+}
+
+.key {
+	width:100px;
+	height:27px;
+	font-size:14px;
+	margin-top:5px;
+	margin-bottom:5px;
+}
+
+.value {
+	width:150px;
+	height:23px;
+	font-size:14px;
+	margin-top:5px;
+	margin-bottom:5px;
+}
+
+.top {
+	background:#1E284A;
+	padding-left:20px;
+	padding-right:20px;
+	padding-top:10px;
+	padding-bottom:10px;
+}
+
+.query_btn {
+	background:url(../img/query.png) no-repeat; 
+	width:90px; 
+	height:32px;
+	cursor:pointer;
+	margin-left:20px;
+}
+
+.add_btn {
+	background:url(../img/add.png) no-repeat; 
+	width:90px; 
+	height:32px;
+	cursor:pointer;
+	margin-left:20px;
+}
+
+
+.table_head_bg {
+	/*background:url(../img/table_head_bg.png) repeat-x top;*/
+	background: #23305E;
+	height:40px;
+}
+
+.table_body_bg tr:hover { 
+	background:#1b6c70;
+}
+
+.table_tr_head_start {
+	text-align:center;
+	height:40px; 
+	line-height:40px; 
+	color:#dbefef;
+	font-size:15px;
+	font-weight:bold;
+	border:#4f4f4f 1px solid;
+	border-left:0;
+	border-bottom:0;
+	border-top:0;
+}
+
+.table_tr_head {
+	text-align:center;
+	height:40px; 
+	line-height:40px; 
+	color:#dbefef;
+	font-size:15px;
+	font-weight:bold;
+	border:#4f4f4f 1px solid;
+	border-left:0;
+	border-bottom:0;
+	border-top:0;
+}
+
+.table_tr_head_end {
+	text-align:center;
+	height:40px; 
+	line-height:40px; 
+	color:#dbefef;
+	font-size:15px;
+	font-weight:bold;
+	border:#4f4f4f 1px solid;
+	border-left:0;
+	border-bottom:0;
+	border-right:0;
+	border-top:0;
+}
+
+.table_tr_body_start {
+	text-align:center;
+	height:35px; 
+	line-height:35px; 
+	font-size:14px;
+	color:#dbefef;
+	border:#4f4f4f 1px solid;
+	border-left:0;
+	border-top:0;
+}
+
+.table_tr_body {
+	text-align:center;
+	height:35px; 
+	line-height:35px; 
+	font-size:14px;
+	color:#dbefef;
+	border:#4f4f4f 1px solid;
+	border-left:0;
+	border-top:0; 
+}
+
+.table_tr_body_end {
+	text-align:center;
+	height:35px; 
+	line-height:35px; 
+	font-size:14px;
+	color:#dbefef;
+	border:#4f4f4f 1px solid;
+	border-left:0;
+	border-top:0; 
+	border-right:0; 
+}
+
+
+

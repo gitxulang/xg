@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="iie.pojo.NmsDatabaseConfig" table="nms_database_config">
+        <id name="id" type="java.lang.Long">
+            <column name="id" />
+            <generator class="increment" />
+        </id>
+        <many-to-one name="nmsSoft" class="iie.pojo.NmsSoft" lazy="false" fetch="join">
+            <column name="soft_id">
+                <comment>soft_id关联nms_soft表主键id</comment>
+            </column>
+        </many-to-one>
+        <property name="startTime" type="java.lang.Long">
+            <column name="start_time" length="15">
+                <comment>数据库启动时间戳，精确到秒</comment>
+            </column>
+        </property>
+        <property name="totalSize" type="java.lang.Long">
+            <column name="total_size" length="15">
+                <comment>数据库存储容量，单位KB</comment>
+            </column>
+        </property>
+        <property name="instanceNames" type="java.lang.String">
+            <column name="instance_names" length="4096">
+                <comment>数据库实例名，多个实例之间用英文分号分割</comment>
+            </column>
+        </property>
+        <property name="maxConnNum" type="java.lang.Long">
+            <column name="max_conn_num" length="11">
+                <comment>数据库配置的最大连接数</comment>
+            </column>
+        </property>
+        <property name="maxMemSize" type="java.lang.Long">
+            <column name="max_mem_size" length="11">
+                <comment>数据库配置的最大内存，单位KB</comment>
+            </column>
+        </property>
+        <property name="itime" type="java.sql.Timestamp">
+            <column name="itime" length="19" not-null="true">
+                <comment>入库时间</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

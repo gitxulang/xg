@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="iie.pojo.NmsDatabaseStatus" table="nms_database_status">
+        <id name="id" type="java.lang.Long">
+            <column name="id" />
+            <generator class="increment" />
+        </id>
+        <many-to-one name="nmsSoft" class="iie.pojo.NmsSoft" lazy="false" fetch="join">
+            <column name="soft_id">
+                <comment>soft_id关联nms_soft表主键id</comment>
+            </column>
+        </many-to-one>
+        <property name="totalSize" type="java.lang.Long">
+            <column name="total_size" length="15">
+                <comment>数据库实际总数据大小，单位KB</comment>
+            </column>
+        </property>
+        <property name="memSize" type="java.lang.Long">
+            <column name="mem_size" length="15">
+                <comment>数据库实际使用内存，单位KB</comment>
+            </column>
+        </property>
+        <property name="tps" type="java.lang.Long">
+            <column name="tps" length="11">
+                <comment>总的事务量自启动以来，单位个</comment>
+            </column>
+        </property>
+        <property name="ioBusy" type="java.lang.Long">
+            <column name="io_busy" length="20">
+                <comment>数据库自启动以来读取和写入字节之和，单位KB</comment>
+            </column>
+        </property>
+        <property name="connNum" type="java.lang.Long">
+            <column name="conn_num" length="11">
+                <comment>当前连接数</comment>
+            </column>
+        </property>
+        <property name="activeConnNum" type="java.lang.Long">
+            <column name="active_conn_num" length="11">
+                <comment>数据库当前活跃连接数</comment>
+            </column>
+        </property>
+        <property name="processNum" type="java.lang.Long">
+            <column name="process_num" length="11">
+                <comment>数据库当前运行进程或线程数</comment>
+            </column>
+        </property>
+        <property name="deadLockNum" type="java.lang.Long">
+            <column name="dead_lock_num" length="11">
+                <comment>数据库当前死锁数</comment>
+            </column>
+        </property>
+        <property name="userList" type="java.lang.String">
+            <column name="user_list" length="2048">
+                <comment>数据库当前用户列表，多个用户之间用英文分号分割</comment>
+            </column>
+        </property>
+        <property name="itime" type="java.sql.Timestamp">
+            <column name="itime" length="19" not-null="true">
+                <comment>入库时间</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

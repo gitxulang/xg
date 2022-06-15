@@ -1,0 +1,29 @@
+body {
+	margin:0;
+	padding:0;
+	background:#164f52;
+	color:#dbefef;
+	font-size:15px;
+	font-weight:bold;
+
+}
+
+.div_edit_area { 
+	font-size:15px;
+/* 	width:15px;  */
+	height:25px; 
+	line-height:25px; 
+	margin-left:15px;
+	margin-right:5px;
+	color:#fff; 
+}
+
+.input_edit_area { 
+	font-size:15px;
+	width:200px; 
+	height:25px; 
+	line-height:25px; 
+	margin-left:5px;
+	margin-right:0px;
+	color:#000000; 
+}

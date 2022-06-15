@@ -1,0 +1,39 @@
+
+body {
+	margin:0;
+	padding:0;
+	background:#164f52;
+	color:#dbefef;
+	font-size:15px;
+	font-weight:bold;
+
+}
+
+.label_add_hint_link { 
+	font-size:15px;
+	width:240px; 
+	height:25px; 
+	line-height:25px; 
+	margin-left:0px;
+	color:#5befef; 
+}
+
+.div_add_hint_link { 
+	font-size:15px;
+/* 	width:240px;  */
+	height:25px; 
+	line-height:25px; 
+	margin-left:15px;
+	margin-right:5px;
+	color:#dbefef; 
+}
+
+.select_add_hint_link { 
+	font-size:15px;
+	width:150px; 
+	height:30px; 
+	line-height:30px; 
+	margin-left:15px;
+	margin-right:5px;
+	color:#000000; 
+}

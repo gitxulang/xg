@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<link rel="stylesheet" type="text/css" href="./css/addHintLink.css"/>
+		<script type="text/javascript" src="../assets/js/jquery-1.10.2.js"></script>
+		<script type="text/javascript" src="../pages/common.js"></script>
+		<script type="text/javascript" src="./js/addHintLink.js"></script>
+	</head>
+  
+	<body style="background:#1E284A;">
+		<form id="addLinkForm" method="post" name="addLinkForm">									
+			<table border="0" cellpadding="0" cellspacing="0" width="100%" align="center">		
+				<tr>
+					<td><br/></td>
+					<td><br/></td>
+				</tr>
+				
+				<tr>						
+					<td align="right" height="33" width="30%">
+						<div class="label_add_hint_link">起始端设备：</div>
+					</td>				
+					<td width="70%">
+						<select size=1 id="start_node_type" class="select_add_hint_link" onchange="stratNodeTypeChange()">
+							<option value="开始节点" selected="selected" >开始节点</option>
+							<option value="结束节点">结束节点</option>
+						</select>					
+					</td>
+				</tr>
+			
+				<tr>						
+					<td align="right" height="33" width="30%">
+						<div class="label_add_hint_link">设备名称：</div>
+					</td>				
+					<td width="70%">
+						<div class="div_add_hint_link start_node_name"></div>
+					</td>	
+	            </tr>
+	            
+  				<tr>						
+					<td align="right" height="33" width="30%">
+						<div class="label_add_hint_link">对点端设备：</div>
+					</td>				
+					<td width="70%">
+						<select size=1 id="end_node_type" class="select_add_hint_link" onchange="endNodeTypeChange()">
+							<option value="结束节点" selected="selected" >结束节点</option>
+							<option value="开始节点">开始节点</option>
+						</select>					
+					</td>
+				</tr>
+			
+				<tr>						
+					<td align="right" height="33" width="30%">
+						<div class="label_add_hint_link">设备名称：</div>
+					</td>				
+					<td width="70%">
+						<div class="div_add_hint_link end_node_name"></div>
+					</td>	
+	            </tr>
+
+				<tr>						
+					<td align="right" height="33" width="30%">
+						<div class="label_add_hint_link">链路类型：</div>
+					</td>				
+					<td width="70%">
+						<select size=1 id="link_type" class="select_add_hint_link">
+							<option value="1" selected="selected" >绿实线（无管道）</option>
+							<option value="2">黄实线（无管道）</option>
+							<option value="3">绿实线（有管道）</option>
+							<option value="4">黄实线（有管道）</option>
+							<option value="5">黄虚线（有管道）</option>
+							<option value="6">灰管道</option>
+						</select>	
+					</td>	
+	            </tr>
+	            
+				<tr>
+					<td>
+						<input type="hidden" id='start_node_id' value=""/>
+						<input type="hidden" id='start_node_name' value=""/>
+						<input type="hidden" id='start_node_desc' value=""/>
+			  			<input type="hidden" id='end_node_id' value=""/>
+			  			<input type="hidden" id='end_node_name' value=""/>
+			  			<input type="hidden" id='end_node_desc' value=""/>
+						<input type="hidden" id='current_topo_map' value=""/>
+					</td>
+				</tr>
+	
+				<tr>
+					<td><br/></td>
+					<td><br/></td>
+				</tr>
+				
+				<tr>
+					<td colspan="4" align="center">
+						<img src="./img/save.png"  style="cursor:pointer;" onclick="save()"/>&nbsp;&nbsp;&nbsp;&nbsp;
+					    <img src="./img/close.png" style="cursor:pointer;" onclick="closeDialog()"/>
+					</td>	
+				</tr>
+			</table>					
+		</form>
+  </body>
+</html>

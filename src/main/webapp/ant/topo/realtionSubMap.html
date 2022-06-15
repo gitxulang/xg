@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<link rel="stylesheet" type="text/css" href="./css/realtionSubMap.css"/>
+		<script type="text/javascript" src="../assets/js/jquery-1.10.2.js"></script>
+		<script type="text/javascript" src="../pages/common.js"></script>
+		<script type="text/javascript" src="./js/realtionSubMap.js"></script>
+	</head>
+
+	<body style="background:#1E284A;color:#fff;">
+		<form id="mainForm" method="post" name="mainForm" width="100%">
+			<input type=hidden name="node_id" id="node_id" value=""/>
+			<input type=hidden name="current_topo_map" id="current_topo_map" value=""/>
+			<table width="100%" border="0" cellSpacing="0" cellPadding="0">
+				<tr>
+					<td colspan="2"><br></td>	
+				</tr>
+
+				<tr height="50" id="listname" style="color:rgb(64,131,255);">
+					<td align="center" width="50%" class="label_relation_sub_map">选择拓扑</td>				
+					<td align="left" class="label_relation_sub_map">拓扑名称</td>
+				</tr>	
+				
+				<tr>
+					<td colspan="2"><br></td>	
+				</tr>	
+	
+				<tr>
+					<td colspan="2" align="center">
+						<img src="./img/save.png"  style="cursor:pointer;" onclick="save()"/>&nbsp;&nbsp;&nbsp;&nbsp;
+		    			<img src="./img/close.png" style="cursor:pointer;" onclick="closeDialog()"/>
+					</td>
+				</tr>	
+			</table>
+		</form>
+	</body>
+</html>
+

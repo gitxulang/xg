@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<link rel="stylesheet" type="text/css" href="./css/createSubMap.css"/>
+		<script type="text/javascript" src="../assets/js/jquery-1.10.2.js"></script>
+		<script type="text/javascript" src="../pages/common.js"></script>
+		<script type="text/javascript" src="./js/createSubMap.js"></script>
+	</head>
+  
+	<body style="background:#1E284A;">	
+		<form id="mainForm" method="post" name="mainForm">
+			<input type="hidden" name="current_topo_map" value="rootmap"/>
+			<table border="0" cellpadding="0" cellspacing="0" width="100%" align="center">
+				<tr>
+					<td colspan="2"><br></td>	
+				</tr>			
+
+				<tr>						
+					<td align="right" height="48" width="40%">
+						<div class="label_create_sub_map">请输入拓扑名称：</div>
+					</td>				
+					<td>
+						<input type="text" id="topo_name" name="topo_name" size="30" class="input_create_sub_map" placeholder="请输入拓扑名称" value=""/>
+						
+					</td>
+				</tr>
+
+	 			<tr>						
+					<td style="display:none" align="right" height="48">
+						<div class="label_create_sub_map">所属部门：</div>
+					</td>				
+					<td>
+						<table width="100%" cellpadding="0" cellspacing="0" border="0">										                        								
+							<tbody style="display:none">
+								<tr> 
+									<td height="40" align="left">
+										<input type="checkbox" name="checkbox" value="2" checked=""/>信息中心
+									</td>
+								</tr>  
+          				                  										                        								
+								<tr> 
+									<td height="40" align="left">
+										<input type="checkbox" name="checkbox" value="3" checked=""/>设备中心
+									</td>
+								</tr>                  										                 										                      								
+							</tbody>
+						</table>
+					</td>																			
+				</tr>
+				
+				<tr>
+					<td colspan="2" style="display:none">
+	 					<input type="radio" name="topo_type" value="1" checked=""/>拓扑视图创建
+						<input type="radio" name="topo_type" value="2"/>业务视图创建
+					</td>
+				</tr>
+					
+				<tr>
+					<td colspan="2" align="center">
+						<br>
+						<img src="./img/save.png" onclick="save()"/>&nbsp;&nbsp;&nbsp;&nbsp;
+					    <img src="./img/close.png" onclick="closeDialog()"/>
+					</td>	
+				</tr>
+			</table>									
+		</form>
+	</body>
+</html>

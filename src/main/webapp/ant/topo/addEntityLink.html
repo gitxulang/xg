@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<link rel="stylesheet" type="text/css" href="./css/addEntityLink.css"/>
+		<script type="text/javascript" src="../assets/js/jquery-1.10.2.js"></script>
+		<script type="text/javascript" src="../pages/common.js"></script>
+		<script type="text/javascript" src="./js/addEntityLink.js"></script>
+	</head>
+	
+	<body>
+		<form id="addLinkForm" method="post" name="addLinkForm">									
+			<table border="0" cellpadding="0" cellspacing="0" width="100%" align="center">
+				<tr>
+					<td><br/></td>
+					<td><br/></td>
+				</tr>
+				
+				<tr>						
+					<td align="right" height="33" width="30%">
+						<div class="label_add_entity_link">链路名称：</div>
+					</td>				
+					<td width="70%">
+						<input type="text" id="link_name" name="link_name" size="30" value="" class="input_add_entity_link"/>
+					</td>
+				</tr>
+			
+				<tr>						
+					<td align="right" height="33" width="30%">
+						<div class="label_add_entity_link">起点设备名称：</div>
+					</td>				
+					<td width="70%">
+						<div class="div_add_entity_link start_node_name"></div>
+					</td>
+	            </tr>
+	            
+	            <tr>						
+					<td align="right" height="33" width="30%">
+						<div class="label_add_entity_link">起点设备IP地址：</div>
+					</td>				
+					<td width="70%">
+						<div class="div_add_entity_link start_node_ip"></div>
+					</td>
+				</tr>
+			
+				<tr>				
+					<td align="right" height="33" width="30%">
+						<div class="label_add_entity_link">起点设备端口：</div>
+					</td>				
+					<td width="70%">
+						<select id="start_node_index" size=1 name="start_node_index" class="select_add_entity_link" onchange="startPortChange(this)"></select>
+  					</td>
+  				</tr>
+  							
+  				<tr>						
+					<td align="right" height="33" width="30%" color="write">
+						<div class="label_add_entity_link">终点设备名称：</div>
+					</td>				
+					<td width="70%">
+						<div class="div_add_entity_link end_node_name"></div>
+					</td>	
+	            </tr>
+	            
+	            <tr>						
+					<td align="right" height="33" width="30%">
+						<div class="label_add_entity_link">终点设备IP地址：</div>
+					</td>				
+					<td width="70%">
+						<div class="div_add_entity_link end_node_ip"></div>
+					</td>
+				</tr>
+			
+				<tr>				
+					<td align="right" height="33" width="30%">
+						<div class="label_add_entity_link">终点设备端口：</div>
+					</td>				
+					<td width="70%">
+						<select id="end_node_index" size=1 name="end_node_index" class="select_add_entity_link" onchange="endPortChange(this)"></select>
+  					</td>
+  				</tr>
+ 
+  				<tr style="display:none">						
+					<td align="right" height="33" width="30%">
+						<div class="label_add_entity_link">链路类型：</div>
+					</td>				
+					<td width="70%">
+						<select id="link_type" size=1 class="select_add_entity_link">
+							<option value="1" selected="selected" >绿实线（无管道）</option>
+							<option value="2">黄实线（无管道）</option>
+							<option value="3">绿实线（有管道）</option>
+							<option value="4">黄实线（有管道）</option>
+							<option value="5">黄虚线（有管道）</option>
+						</select>	
+					</td>	
+	            </tr>
+
+				<tr>
+					<td>
+						<input type="hidden" id="start_node_id" name="start_node_id" value=""/>
+			  			<input type="hidden" id="end_node_id" name="end_node_id" value=""/>
+						<input type="hidden" id="current_topo_map" name="current_topo_map" value=""/>
+					</td>
+				</tr>
+				
+				<tr>
+					<td><br/></td>
+					<td><br/></td>
+				</tr>
+				
+				<tr>
+					<td colspan="2" align="center">
+						<img src="./img/save.png" onclick="save()"/>&nbsp;&nbsp;&nbsp;&nbsp;
+					    <img src="./img/close.png" onclick="closeDialog()"/>
+					</td>	
+				</tr>
+			</table>
+		</form>
+  </body>
+</html>
+  

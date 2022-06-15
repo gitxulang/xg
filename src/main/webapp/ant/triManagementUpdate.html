@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+<html> 
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>安天涉密专用运维管理系统（涉密专用计算平台版）V3.0</title>
+		<link href="assets/css/icon.css" rel="stylesheet" />
+		<link href="assets/materialize/css/materialize.min.css" rel="stylesheet" media="screen,projection" />
+		<link href="assets/css/bootstrap.css" rel="stylesheet" />
+		<link href="assets/css/font-awesome.css" rel="stylesheet" />
+		<link href="assets/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
+		<link href="assets/css/custom-styles.css" rel="stylesheet" />
+		<link href='assets/css/font-awesome.css' rel='stylesheet' type='text/css' />
+		<link href="assets/js/Lightweight-Chart/cssCharts.css" rel="stylesheet"> 
+		<link href="assets/css/common.css" rel="stylesheet">
+	</head>
+
+	<body class="layer-body" style="background:#1E284A;color:#fff;">
+		<div class="layer-card">
+			<div class="layer-card-content">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="card">
+							<div class="card-content">
+								<form class="col s12">
+									<div id="device_id" style="display:none"></div>
+									<div class="row">
+										<div class="input-field col s12">
+											<input id="a_no" type="text" disabled="disabled">
+											<label for="a_no" class="myactive">ASPID</label>
+										</div>
+										<div class="input-field col s12">
+											<input id="a_name" type="text" class="validate" disabled="disabled">
+											<label for="a_name" class="myactive">名称</label>
+										</div>
+										
+										<div class="input-field col s12">
+											<select id="a_type" class="my-form-select"></select>
+											<label for="a_type" class="myactive">类别</label>
+										</div>
+									</div>
+									<div class="row">
+										<div class="input-field col s12">
+											<input id="manageName" type="text" class="validate">
+											<label for="manageName" class="myactive">管理端名称</label>
+										</div>
+										
+										<div class="input-field col s12">
+											<input id="manageUrl" type="text" class="validate">
+											<label for="manageUrl" class="myactive">管理端地址</label>
+										</div>
+									</div>
+								</form>
+
+								<div class="row">
+									<div class="input-field col s6" align="right">
+										<div>
+											<a href="#" class="waves-effect waves-light my-btn" onclick="triManagementUpdate()">
+												保 存
+											</a>
+										</div>
+									</div>
+									<div class="input-field col s6">
+										<div>
+											<a href="#" class="waves-effect waves-light my-btn" onclick="window.top.location.reload();">
+												返 回
+											</a>
+										</div>
+									</div>
+								</div>
+								<div class="clearBoth"></div>
+							</div>
+						</div>
+					</div>	
+				</div>
+				<div class="fixed-action-btn horizontal click-to-toggle">
+					<a class="btn-floating btn-large red">
+						<i class="material-icons">menu</i>
+					</a>
+					<ul>
+						<li><a href="hardWare.html" class="btn-floating red"><i class="material-icons">track_changes</i></a></li>
+						<li><a href="#" class="btn-floating green"><i class="material-icons">publish</i></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<script src="assets/js/jquery-1.10.2.js"></script>
+		<script src="assets/js/bootstrap.min.js"></script>
+		<script src="assets/js/bootstrap-datetimepicker.js"></script> 
+		<script src="assets/materialize/js/materialize.min.js"></script>
+		<script src="assets/js/jquery.metisMenu.js"></script>
+		<script src="assets/js/Lightweight-Chart/jquery.chart.js"></script>
+		<script type="text/javascript" src="./assets/plugins/layer/layer.js"></script>	
+		
+		<script type="text/javascript" src="./pages/common.js"></script>
+		<script type="text/javascript" src="./pages/title.js"></script> 
+		<script type="text/javascript" src="./pages/triManagementUpdate.js"></script>
+
+	</body>
+</html>

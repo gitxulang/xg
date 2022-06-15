@@ -1,0 +1,223 @@
+﻿<!DOCTYPE html>
+<html> 
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>安天涉密专用运维管理系统（涉密专用计算平台版）V3.0</title>
+		<link href="assets/css/icon.css" rel="stylesheet" />
+		<link href="assets/materialize/css/materialize.min.css" rel="stylesheet" media="screen,projection" />
+		<link href="assets/css/bootstrap.css" rel="stylesheet" />
+		<link href="assets/css/font-awesome.css" rel="stylesheet" />
+		<link href="assets/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
+		<link href="assets/css/custom-styles.css" rel="stylesheet" />
+		<link href='assets/css/font-awesome.css' rel='stylesheet' type='text/css' />
+		<link href="assets/js/Lightweight-Chart/cssCharts.css" rel="stylesheet"> 
+		<link href="assets/css/common.css" rel="stylesheet">
+	</head>
+
+	<body>
+		<div id="page-wrapper">
+			<div class="header"> 
+				<ol class="breadcrumb">
+					<li><a href="#">资产管理</a></li>
+					<li><a href="javascript:jumpPage('hardWare.html')">设备资产列表</a></li>
+					<li><a href="#">设备资产新增</a></li>
+				</ol> 						
+			</div>
+			
+			<div id="page-inner">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="card">
+							<div class="card-content">
+								<form class="col s12">
+									<div class="row">
+										<div class="input-field col s12">
+											<input id="a_ip" type="text" class="validate">
+											<label id="a_ip_label" for="a_ip" class="myactive"><span id="ip_alarm">IP地址</span></label>
+										</div>
+										
+										<div class="input-field col s12">
+											<input id="a_no" type="text" class="validate">
+											<label for="a_no" class="myactive">ASPID</label>
+										</div>
+									</div>
+									
+									<div class="row">
+										<div class="input-field col s12">
+											<input id="a_name" type="text" class="validate">
+											<label for="a_name" class="myactive">名称描述</label>
+										</div>
+										
+										<div class="input-field col s12">
+											<select id="a_type" class="my-form-select"></select> 
+											<label for="a_type" class="myactive">类别</label>
+										</div>
+									</div>
+									
+									<div class="row">
+										<div class="input-field col s12">
+											<input id="a_pos" type="text" class="validate">
+											<label for="a_pos" class="myactive">存放位置</label>
+										</div>
+										
+										<div class="input-field col s12">
+											<input id="a_user" type="text" class="validate">
+											<label for="a_user" class="myactive">责任人</label>
+										</div>
+									</div>
+									
+									<div class="row">
+										<div class="input-field col s12">
+											<select id="a_dept" class="my-form-select"></select> 
+											<label for="a_dept" class="myactive">所属部门</label>
+										</div>
+										
+										<div class="input-field col s12">
+											<input id="a_manu" type="text" class="validate">
+											<label for="a_manu" class="myactive">采购厂商</label>
+										</div>
+									</div>
+									
+									<div class="row">
+										<div class="input-field col s12">
+											<input id="a_date" type="text" readonly>
+											<label for="a_date" class="myactive">采购日期</label>
+										</div>
+										
+										<div class="input-field col s12">
+											<select id="colled" class="my-form-select">
+												<option value="0">启用</option>
+												<option value="1">禁用</option>
+											</select> 
+											<label for="colled" class="myactive">是否监控</label>
+										</div>
+									</div>
+									
+									<div class="row">
+										<div class="input-field col s12">
+											<select id="colled_mode" class="my-form-select" onchange="changeColledMode()">
+												<option value="0">专用代理</option>
+												<option value="1">ICMP协议</option>
+												<option value="2">SNMPv1和v2c协议</option>
+												<option value="3">SNMPv3协议</option>
+											</select> 
+											<label for="colled_mode" class="myactive">采集协议</label>
+										</div>
+									</div>
+									
+									<div class="row" id="snmp_attr" style="display:none">
+										<!-- <div class="input-field col s12">
+											<input id="r_comm" type="password" class="validate" value="">
+											<label id="user_show_snmp" for="r_comm" class="myactive">SNMPv1和v2c读团体字</label>
+										</div>
+										
+										<div class="input-field col s12">
+											<input id="w_comm" type="password" class="validate" value="">
+											<label id="pass_show_snmp" for="w_comm" class="myactive">SNMPv1和v2c写团体字</label>
+										</div> -->
+									</div>
+									
+									<div class="row" id="ssh_attr" style="display:none">
+										<!-- <div class="input-field col s12">
+											<input id="username" type="text" class="validate" value="">
+											<label id="user_show_ssh" for="username" class="myactive">SNMPv3用户名称</label>
+										</div>
+										<div class="input-field col s12">
+											<input id="password" type="password" class="validate" value="">
+											<label id="pass_show_ssh" for="password" class="myactive">SNMPv3用户密码</label>
+										</div> -->
+									</div>
+									
+									<div class="row" id="serviceport_attr">
+										<!-- <div class="input-field col s12">
+											<input id="sshport" type="password" class="validate" value="">
+											<label id="port_show_ssh" for="sshport" class="myactive">SNMPv3认证密码</label>
+										</div> -->
+										<div class="input-field col s12">
+											<input id="auth_pass" type="text" class="validate" value="6000">
+											<label id="port" for="auth_pass" class="myactive">专用代理服务端口（UDP）</label>
+										</div>
+									</div>
+								</form>
+								
+								<div class="row">
+									<div class="col-md-5" align="right">
+										<div>
+											<a href="#" class="my-btn" onclick="assetAdd()">
+												保 存
+											</a>
+										</div>
+									</div>
+									<div class="col-md-1">
+										<div>
+											<a href="#" class="my-btn" onclick="jumpPage('hardWare.html')">
+												返 回
+											</a>
+										</div>
+									</div>
+									
+									<div class="col-md-1" align="right">
+										<div>
+											<a href="#" onclick="importTable()" class="my-btn">
+												提 交
+											</a>
+										</div>
+									</div>
+	
+									<div class="col-md-1" align="left">
+										<a id="file" href="javascript:;" class="my-btn">选择文件
+											<input id="importFile" type="file"></input>
+										</a>
+									</div>
+									
+									<div class="col-md-4">								
+						 				<div id="showFileName"></div>
+									</div>
+								</div>
+								<div class="clearBoth"></div>
+							</div>
+						</div>
+					</div>	
+				</div>
+				
+				<div class="fixed-action-btn horizontal click-to-toggle">
+					<a class="btn-floating btn-large red">
+						<i class="material-icons">menu</i>
+					</a>
+					<ul>
+						<li><a href="dashboard.html" class="btn-floating red"><i class="material-icons">track_changes</i></a></li>
+						<li><a href="#" class="btn-floating green"><i class="material-icons">publish</i></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<script src="assets/js/jquery-1.10.2.js"></script>
+		<script src="assets/js/bootstrap.min.js"></script>
+		<script src="assets/js/bootstrap-datetimepicker.js"></script> 
+		<script src="assets/materialize/js/materialize.min.js"></script>
+		<script src="assets/js/jquery.metisMenu.js"></script>
+		<script src="assets/js/Lightweight-Chart/jquery.chart.js"></script>
+		<script type="text/javascript" src="./assets/plugins/layer/layer.js"></script>	
+		
+		<script type="text/javascript" src="./pages/common.js"></script>
+		<script type="text/javascript" src="./pages/title.js"></script> 
+		<script type="text/javascript" src="./pages/assetAdd.js"></script> 
+		
+		<script>
+			$("#file").on("change", "input[type='file']", function() {
+			    var filePath = $(this).val();
+			    if (filePath.indexOf("xlsx") != -1 || filePath.indexOf("xls") != -1) {
+			        var arr = filePath.split('\\');
+			        var fileName = arr[arr.length - 1];
+			        $("#showFileName").html(fileName);
+			    } else {
+			    	alert("您未上传文件，或者您上传文件类型有误，只接收xls或xlsx类型文件！");
+			        return false;
+			    }
+			})
+		</script>
+
+	</body>
+</html>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="iie.pojo.NmsMiddlewareConfig" table="nms_middleware_config">
+        <id name="id" type="java.lang.Long">
+            <column name="id" />
+            <generator class="increment" />
+        </id>
+        <many-to-one name="nmsSoft" class="iie.pojo.NmsSoft" lazy="false" fetch="join">
+            <column name="soft_id">
+                <comment>soft_id关联nms_soft表主键id</comment>
+            </column>
+        </many-to-one>
+        <property name="startTime" type="java.lang.Long">
+            <column name="start_time" length="15">
+                <comment>中间件启动时间戳，精确到秒</comment>
+            </column>
+        </property>
+        <property name="httpsProtocol" type="java.lang.Integer">
+            <column name="https_protocol">
+                <comment>是否启用HTTPS协议，0表示未启用, 1表示已启用</comment>
+            </column>
+        </property>
+        <property name="protocols" type="java.lang.String">
+            <column name="protocols" length="2048">
+                <comment>中间件支持的证书加密协议, 多个协议之间用应为分号分开</comment>
+            </column>
+        </property>
+        <property name="listenPorts" type="java.lang.String">
+            <column name="listen_ports" length="512">
+                <comment>中间件监听使用的端口号, 多个端口之间用英文分号分开</comment>
+            </column>
+        </property>
+        <property name="maxConnNum" type="java.lang.Long">
+            <column name="max_conn_num" length="11">
+                <comment>中间件配置的最大连接数</comment>
+            </column>
+        </property>
+        <property name="maxHreadNum" type="java.lang.Long">
+            <column name="max_hread_num" length="11">
+                <comment>中间件配置的最大JVM线程数</comment>
+            </column>
+        </property>
+        <property name="itime" type="java.sql.Timestamp">
+            <column name="itime" length="19" not-null="true">
+                <comment>入库时间</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

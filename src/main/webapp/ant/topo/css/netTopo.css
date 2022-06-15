@@ -1,0 +1,55 @@
+
+body {
+	background: url("../img/background.jpg") no-repeat;
+	background-size: 100%;
+ 	background-attachment: fixed;
+	overflow-x: hidden;
+	overflow-y: hidden;
+	transform: scale(1.0);
+	opacity: 1.0;
+	z-index: -2;
+	margin: 0;
+	padding: 0;
+}
+
+#centertitle {
+	color: #ffff0f;
+	font-size: 24px;
+}
+
+.show {
+	color: #fff;
+	font-size: 15px;
+}
+
+#cTopo {
+	width: 1920px;
+	height: 1080px;
+    margin: 0;
+    border: none;
+}
+
+.toolbar_table {
+	padding: 2px 2px 0px 4px;
+}
+
+.toolbar_table td input {
+	cursor: pointer;
+	outline: none;
+}
+
+.toolbar_table td input:hover {
+	border: 1px solid gray;
+}
+
+.select_topo {
+    border: #86c8c7 1px solid;
+    font-size: 15px;
+    width: 180px;
+    height: 30px;
+    line-height: 30px;
+    background: #133f45;
+    margin-left: 10px;
+    margin-right: 5px;
+    color: #dbefef;
+}

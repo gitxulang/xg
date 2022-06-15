@@ -1,0 +1,49 @@
+
+body {
+	margin:0;
+	padding:0;
+	background:#164f52;
+	color:#dbefef;
+	font-size:15px;
+	font-weight:bold;
+
+}
+
+.label_edit_map { 
+	font-size:15px;
+	width:150px; 
+	height:25px; 
+	line-height:25px; 
+	margin-left:15px;
+	color:#5befef; 
+}
+
+.div_edit_map { 
+	font-size:15px;
+/* 	width:15px;  */
+	height:25px; 
+	line-height:25px; 
+	margin-left:15px;
+	margin-right:5px;
+	color:#5befef; 
+}
+
+.input_edit_map { 
+	font-size:15px;
+	width:200px; 
+	height:25px; 
+	line-height:25px; 
+	margin-left:5px;
+	margin-right:0px;
+	color:#000000; 
+}
+
+.select_edit_map { 
+	font-size:15px;
+	width:210px; 
+	height:25px; 
+	line-height:25px; 
+	margin-left:15px;
+	margin-right:5px;
+	color:#000000; 
+}

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>安天涉密专用运维管理系统（涉密专用计算平台版）V3.0</title>
+    <link href="assets/css/icon.css" rel="stylesheet" />
+    <link href="assets/materialize/css/materialize.min.css" rel="stylesheet" media="screen,projection" />
+    <link href="assets/css/bootstrap.css" rel="stylesheet" />
+    <link href="assets/css/font-awesome.css" rel="stylesheet" />
+    <link href="assets/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
+    <link href="assets/css/custom-styles.css" rel="stylesheet" />
+    <link href='assets/css/font-awesome.css' rel='stylesheet' type='text/css' />
+    <link href="assets/js/Lightweight-Chart/cssCharts.css" rel="stylesheet">
+</head>
+
+<body>
+       <div id="page-wrapper">
+           <div class="header">
+               <ol class="breadcrumb">
+                   <li><a href="knowQA.html">运维常见问题</a></li>
+                   <li><a href="knowQA.html">检索</a></li>
+                   <li>结果</li>
+               </ol>
+           </div>
+
+           <div id="page-inner">
+
+               <div class="row">
+                   <div class="col-md-12">
+                       <div class="card">
+					
+
+                           <div class="card-content">
+
+                               <!-- 搜索内容框 -->
+                               <div class="row">
+								<div class="col-md-12">
+									<label>搜索内容</label>
+									<input type="text" style="height:100%;width:60%;" value=""/>
+								</div>
+                               </div>
+
+                               <!-- 筛选框 -->
+                               <div class="row">
+                                   <div class="col-md-2">
+                                       <div>
+                                           <label>搜索时间</label>
+                                           <label>
+                                               <select class="form-control">
+                                                   <option value="">请选择</option>
+                                                   <option value="1">一月内</option>
+                                                   <option value="2">半年内</option>
+                                                   <option value="3">一年内</option>
+                                                   <option value="4">全部</option>
+                                               </select>
+                                           </label>
+                                       </div>
+                                   </div>
+
+                                   <div class="col-md-2">
+                                       <div>
+                                           <label>文件格式</label>
+                                           <label>
+                                               <select class="form-control">
+                                                   <option value="">请选择</option>
+                                                   <option value="1">PDF/WORD/PPT</option>
+                                                   <option value="2">TXT/CSV</option>
+                                                   <option value="3">MARKDOWN</option>
+                                                   <option value="4">HTML</option>
+                                                   <option value="5">其他</option>
+                                               </select>
+                                           </label>
+                                       </div>
+                                   </div>
+								
+                                   <div class="col-md-7">
+                                       <div align="right">
+                                           <a href="#" class="waves-effect waves-light btn">
+                                               筛 选
+                                           </a>
+                                       </div>
+                                   </div>
+
+                                   <div class="col-md-1">
+                                       <div align="right">
+                                           <a href="#" class="waves-effect waves-light btn">
+                                               清 除
+                                           </a>
+                                       </div>
+                                   </div>
+                               </div>
+
+                               <!-- 搜索结果展示 -->
+                               <div class="row">
+								<div class="col-md-12">
+								
+									<b><h4 class="title"><a href = "knowSearchDetail.html">标题1</a></h4></b>
+									<b><h5 class="title" style="text-indent:2em;">摘要1……………………………………………………………………………………………………………………………………………………</h5></b>
+									<p class="title">2020-05-08 12:00:05</p> 
+									<p class="title"><a class="#">下载附件</a></p>
+									
+									<br></br>
+									<b><h4 class="title"><a href = "knowSearchDetail.html">标题2</a></h4></b>
+									<b><h5 class="title" style="text-indent:2em;">摘要2……………………………………………………………………………………………………………………………………………………</h5></b>
+									<p class="title">2020-05-08 12:00:05</p>
+									<p class="title"><a class="#">下载附件</a></p>
+									
+									<br></br>
+									<b><h4 class="title"><a href = "knowSearchDetail.html">标题3</a></h4></b>
+									<b><h5 class="title" style="text-indent:2em;">摘要3……………………………………………………………………………………………………………………………………………………</h5></b>
+									<p class="title">2020-05-08 12:00:05</p>
+									<p class="title"><a class="#">下载附件</a></p>
+									
+									<br></br>
+									<b><h4 class="title"><a href = "knowSearchDetail.html">标题4</a></h4></b>
+									<b><h5 class="title" style="text-indent:2em;">摘要4……………………………………………………………………………………………………………………………………………………</h5></b>
+									<p class="title">2020-05-08 12:00:05</p>
+									<p class="title"><a class="#">下载附件</a></p>
+									
+									
+									
+								</div>
+                               </div>
+
+
+                               <!-- 底部页数 -->
+                               <div class="row">
+								<div class="col-sm-6">
+									<div class="pagination">
+										<label>
+											<select class="form-control input-sm">
+												<option value="10">10</option>
+												<option value="25">25</option>
+												<option value="50">50</option>
+												<option value="100">100</option>
+											</select> 
+										</label>
+										<label>
+											记录 / 页，第 1/10 页
+										</label>
+									</div>
+								</div>
+								
+								<div class="col-sm-6">
+									<div class="dataTables_paginate paging_simple_numbers" align="right">
+										<ul class="pagination">
+											<li class="paginate_button previous" tabindex="0" id="dataTables-example_previous">
+												<a href="#">首页</a>
+											</li>
+											<li class="paginate_button" tabindex="0">
+												<a href="#">上一页</a>
+											</li>
+											<li class="paginate_button " tabindex="0">
+												<a href="#">下一页</a>
+											</li>
+											<li class="paginate_button next" tabindex="0">
+												<a href="#">尾页</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+
+               <div class="fixed-action-btn horizontal click-to-toggle">
+                   <a class="btn-floating btn-large red">
+                       <i class="material-icons">menu</i>
+                   </a>
+                   <ul>
+                       <li><a href="dashboard.html" class="btn-floating red"><i class="material-icons">track_changes</i></a>
+                       </li>
+                       <li><a href="#" class="btn-floating green"><i class="material-icons">publish</i></a></li>
+                   </ul>
+               </div>
+           </div>
+       </div><!-- /. PAGE INNER  -->
+
+
+    <script src="assets/js/jquery-1.10.2.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/materialize/js/materialize.min.js"></script>
+    <script src="assets/js/jquery.metisMenu.js"></script>
+    <script src="assets/js/Lightweight-Chart/jquery.chart.js"></script>
+    <script src="assets/js/dataTables/jquery.dataTables.js"></script>
+    <script src="assets/js/dataTables/dataTables.bootstrap.js"></script>
+    <script src="assets/js/tablecommon.js"></script>
+
+</body>
+
+</html>

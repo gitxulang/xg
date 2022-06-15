@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>	
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<link rel="stylesheet" href="assets/css/common.css">
+		<style>
+			.detail_table{
+				width: 80%;
+				display: table;
+   				border-collapse: separate;
+				margin: 30px auto;
+				border-top: #253368 1px solid;
+			}
+			.detail_table tr{
+				display: table-row;
+			}
+			.detail_table td{
+				text-align: center;
+				height: 32px;
+			    line-height: 32px;
+			    font-size: 14px;
+			    border: #253368 1px solid;
+			    border-top: 0;
+				color:#fff;
+			}
+			.detail_table td.title_td{
+				width: 200px;
+			}
+			.detail_table td.content_td{
+				border-left: none;
+			}
+			/*滚动条样式*/
+			body::-webkit-scrollbar {/*滚动条整体样式*/
+			    width: 5px;     /*高宽分别对应横竖滚动条的尺寸*/
+			    height: 5px;
+			}
+			body::-webkit-scrollbar-thumb {/*滚动条里面小方块*/
+			    border-radius: 5px;
+			    -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+			    background: #c1c1c1;
+			}
+			body::-webkit-scrollbar-track {/*滚动条里面轨道*/
+			    -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+			    border-radius: 0;
+			    background: rgba(0,0,0,0.1);
+			}
+		</style>
+	</head>
+	<body>
+		<table class="detail_table" border="0" cellspacing="0" cellpadding="0" />
+
+		<script src="assets/js/jquery-1.10.2.js"></script>
+		<script type="text/javascript" src="./pages/common.js"></script>
+		<script type="text/javascript" src="./pages/staticInfoDetail.js"></script>
+	</body>
+</html>
+
+ 

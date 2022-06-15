@@ -1,0 +1,149 @@
+﻿<!DOCTYPE html>
+<html> 
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>系统管理基础平台</title> 
+		<link href="assets/css/icon.css" rel="stylesheet" />
+		<link href="assets/materialize/css/materialize.min.css" rel="stylesheet" media="screen,projection" />
+		<link href="assets/css/bootstrap.css" rel="stylesheet" />
+		<link href="assets/css/font-awesome.css" rel="stylesheet" />
+		<link href="assets/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
+		<link href="assets/css/custom-styles.css" rel="stylesheet" />
+		<link href='assets/css/font-awesome.css' rel='stylesheet' type='text/css' />
+		<link href="assets/js/Lightweight-Chart/cssCharts.css" rel="stylesheet"> 
+		<link href="assets/css/common.css" rel="stylesheet">
+	</head>
+
+	<body>
+		<div id="page-wrapper">
+			<div class="header"> 
+				<ol class="breadcrumb">
+					<li><a href="#">系统参数设置</a></li>
+					<li><a href="javascript:jumpPage('systemSecRule.html')">系统配置</a></li>
+				</ol> 						
+			</div>
+			
+			<div id="page-inner">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="card" style="background-color:#25356B;color:#fff;">
+							<div class="card-action">
+								系统参数设置
+							</div>
+							<div class="card-content">
+								<form class="col s12">
+									<div id="id" style="display:none;"></div>
+									<div class="row">
+										<div class="input-field col s6">
+											<select id="jmsSwitch" class="my-form-select">
+												<option value="1">开启</option>
+												<option value="0">关闭</option>
+											</select> 
+											<label for="jmsSwitch" class="myactive">JMS基础数据同步开关</label>
+										</div>
+										
+										<div class="input-field col s6">
+											<input id="jmsInterval" type="text" value="">
+											<label for="jmsInterval" class="myactive">检测消息队列周期（秒）</label>
+										</div>
+									</div>
+									
+									<div class="row">
+										<div class="input-field col s6">
+											<input id="jmsAddress" type="text" value="">
+											<label for="jmsAddress" class="myactive">检测消息队列地址</label>
+										</div>
+										
+										<div class="input-field col s6">
+											<input id="jmsPort" type="text" value="">
+											<label for="jmsPort" class="myactive">检测消息队列端口</label>
+										</div>
+									</div>
+									
+									<div class="row">
+										<div class="input-field col s6">
+											<input id="jmsAgptIp" type="text" value="">
+											<label for="jmsAgptIp" class="myactive">安管平台服务地址</label>
+										</div>
+										
+										<div class="input-field col s6">
+											<input id="jmsSfrzIp" type="text" value="">
+											<label for="jmsSfrzIp" class="myactive">身份认证平台地址</label>
+										</div>
+									</div>
+
+									<div class="row">
+										<div class="input-field col s6">
+											<input id="jmsPtglIp" type="text" value="">
+											<label for="jmsPtglIp" class="myactive">配置管理平台地址</label>
+										</div>
+										
+										<div class="input-field col s6">
+											<input id="dbDeleteInterval" type="text" value="">
+											<label for="dbDeleteInterval" class="myactive">历史数据保存周期（天）</label>
+										</div>
+									</div>
+									
+									<div class="row">
+										<div class="input-field col s6">
+											<input id="dbOnlineInterval" type="text" value="">
+											<label for="dbOnlineInterval" class="myactive">检测客户端在线周期（秒）</label>
+										</div>
+										
+										<div class="input-field col s6">
+											<input id="alarmPingInterval" type="text" value="">
+											<label for="alarmPingInterval" class="myactive">连通率采集周期（秒）</label>
+										</div>
+									</div>
+								</form>
+								
+								<div class="row">
+									<div class="col-md-6" align="right">
+										<div>
+											<a href="#" onclick="updateConfig()" class="waves-effect waves-light btn">
+												保存并同步
+											</a>
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div>
+											<a href="#" onclick="syncConfig()" class="waves-effect waves-light btn">
+												同 步
+											</a>
+										</div>
+									</div>
+								</div>
+								
+								<div class="clearBoth"></div>
+							</div>
+						</div>
+					</div>	
+				</div>	
+
+				<div class="fixed-action-btn horizontal click-to-toggle">
+					<a class="btn-floating btn-large red">
+						<i class="material-icons">menu</i>
+					</a>
+					<ul>
+						<li><a href="home.html" class="btn-floating red"><i class="material-icons">track_changes</i></a></li>
+						<li><a href="#" class="btn-floating green"><i class="material-icons">publish</i></a></li>
+					</ul>
+				</div>				
+			</div>
+		</div>
+
+		<script src="assets/js/jquery-1.10.2.js"></script>
+		<script src="assets/js/bootstrap.min.js"></script>
+		<script src="assets/materialize/js/materialize.min.js"></script>
+		<script src="assets/js/jquery.metisMenu.js"></script>
+		<script src="assets/js/Lightweight-Chart/jquery.chart.js"></script>
+		<script src="assets/js/dataTables/jquery.dataTables.js"></script>
+		<script src="assets/js/dataTables/dataTables.bootstrap.js"></script>
+		<script type="text/javascript" src="./assets/plugins/layer/layer.js"></script>
+		
+		<script type="text/javascript" src="./pages/common.js"></script>
+		<script type="text/javascript" src="./pages/title.js"></script> 
+		<script type="text/javascript" src="./pages/systemConfig.js"></script> 
+	</body>
+</html>

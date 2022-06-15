@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+    	<title>拓扑管理</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<link rel="stylesheet" type="text/css" href="./css/addNodes.css"/>
+		<script type="text/javascript" src="../assets/js/jquery-1.10.2.js"></script>
+		<script type="text/javascript" src="../pages/common.js"></script>
+		<!-- <script type="text/javascript" src="./js/jtopo-0.4.8-min.js"></script> -->
+		<script type="text/javascript" src="./js/jtopo-0.4.8.1.js"></script>
+		<script type="text/javascript" src="./js/addNodes.js"></script>
+		<style>
+			
+		</style>
+	</head>
+
+	<body>
+		<form method="post" name="mainForm" onsubmit="return false;">
+			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+				<tbody>
+					<tr>
+						<td class="top">
+							<table border="0" cellspacing="0" cellpadding="0">
+								<tr>
+									<td align="left" width="40%">
+                      					<select id="key" name="key" class="key">
+                      						<option id="name" value="name" selected="">名称</option>
+                      						<option id="ip" value="ip">IP地址</option>
+                      						<option id="no" value="no">ASPID</option>
+										</select>
+										&nbsp;&nbsp;&nbsp;&nbsp; 
+										<input id="value" name="value" type="text" class="value" value="">
+                      				</td>
+                      			
+                      				<td align="left" width="55%">
+										<div id="query_btn" name="query_btn" class="query_btn" onclick="doQuery()"></div>
+                      				</td>
+                      			
+									<td align="right">
+										<div id="add_btn" name="add_btn" class="add_btn" onclick="doAdd()"></div>
+									</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		
+			<table width="100%" border="0" cellspacing="0" cellpadding="0" class="table_head_bg">
+				<tr>
+					<td align="left" class="table_tr_head_start" width="6%">编号</td>
+					<td align="left" class="table_tr_head" width="20%">名称</td>
+					<td align="left" class="table_tr_head" width="22%">ASPID</td>
+					<td align="left" class="table_tr_head" width="15%">IP地址</td>
+					<td align="left" class="table_tr_head" width="25%">设备类型</td>
+					<td align="left" class="table_tr_head_end" width="12%">可用域</td>
+					<td align="left" class="table_tr_head_end" style="display:none">读团体</td>
+					<td align="left" class="table_tr_head_end" style="display:none">写团体</td>
+					<td align="left" class="table_tr_head_end" style="display:none">SNMP端口</td>
+					<td align="left" class="table_tr_head_end" style="display:none">SSH用户名</td>
+					<td align="left" class="table_tr_head_end" style="display:none">SSH密码</td>
+					<td align="left" class="table_tr_head_end" style="display:none">SSH端口</td>
+				</tr>
+			</table>
+			
+			<table width="100%" border="0" cellspacing="0" cellpadding="0" class="table_body_bg">	
+			</table>
+		</form>
+	</body>
+</html>

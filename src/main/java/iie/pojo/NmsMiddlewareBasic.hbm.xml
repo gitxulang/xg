@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="iie.pojo.NmsMiddlewareBasic" table="nms_middleware_basic">
+        <id name="id" type="java.lang.Long">
+            <column name="id" />
+            <generator class="increment" />
+        </id>
+        <many-to-one name="nmsSoft" class="iie.pojo.NmsSoft" lazy="false" fetch="join">
+            <column name="soft_id">
+                <comment>soft_id关联nms_soft表主键id</comment>
+            </column>
+        </many-to-one>
+        <property name="name" type="java.lang.String">
+            <column name="name" length="1024">
+                <comment>中间件名称</comment>
+            </column>
+        </property>
+        <property name="version" type="java.lang.String">
+            <column name="version" length="1024">
+                <comment>中间件版本</comment>
+            </column>
+        </property>
+        <property name="jdkVersion" type="java.lang.String">
+            <column name="jdk_version" length="512">
+                <comment>JDK版本</comment>
+            </column>
+        </property>
+        <property name="installTime" type="java.lang.Long">
+            <column name="install_time">
+                <comment>中间件安装时间戳，精确到秒</comment>
+            </column>
+        </property>
+        <property name="processName" type="java.lang.String">
+            <column name="process_name" length="4096">
+                <comment>中间件进程名称，多个之间用英文分号隔开</comment>
+            </column>
+        </property>
+        <property name="itime" type="java.sql.Timestamp">
+            <column name="itime" length="19" not-null="true">
+                <comment>入库时间</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

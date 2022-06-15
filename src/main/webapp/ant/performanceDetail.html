@@ -1,0 +1,153 @@
+﻿<!DOCTYPE html>
+<html> 
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>安天涉密专用运维管理系统（涉密专用计算平台版）V3.0</title>
+		<link href="assets/css/icon.css" rel="stylesheet" />
+		<link href="assets/materialize/css/materialize.min.css" rel="stylesheet" media="screen,projection" />
+		<link href="assets/css/bootstrap.css" rel="stylesheet" />
+		<link href="assets/css/font-awesome.css" rel="stylesheet" />
+		<link href="assets/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
+		<link href="assets/css/custom-styles.css" rel="stylesheet" />
+		<link href='assets/css/font-awesome.css' rel='stylesheet' type='text/css' />
+		<link href="assets/js/Lightweight-Chart/cssCharts.css" rel="stylesheet"> 
+		<link href="assets/css/common.css" rel="stylesheet">  
+	</head>
+
+	<body class="layer-body" style="background:#1E284A;color:#fff;">
+		<div class="layer-card">
+			<div class="header"> 
+				<ol class="breadcrumb">
+					<li><a>监控管理</a></li>
+					<li><a>硬件监控列表</a></li>
+					<li><a>基础信息</a></li>
+				</ol> 						
+			</div>
+
+			<div class="layer-card-content">
+				<input id="assetId" type="text" hidden></input>
+				<input id="typeId" type="text" hidden></input>
+
+				<div class="card">
+					<div class="my-card-content">
+						<div class="col">
+							<ul id="tab" class="tabs">
+								<li class="tab col s3">
+									<a></a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-9">
+						<div class="card"> 
+							<div class="table-responsive" id="tID">
+
+							</div>
+						</div>
+					</div>
+			
+					<div class="col-md-3" style="display:none;">
+						<div class="card">
+							<div id="current_cpu_rate" style="background:#f0f0f0;width:100%;height:251px;color:#00ff00;text-align:center;vertical-align:middle;font-size:24px;line-height:251px;">
+								
+							</div>
+						</div>	 
+					</div>
+					
+					<div class="col-md-3" style="display:none;">
+						<div class="card">
+							<div id="current_mem_rate" style="background:#f0f0f0;width:100%;height:251px;color:#00ff00;text-align:center;vertical-align:middle;font-size:24px;line-height:251px;">
+								
+							</div>
+						</div>	 
+					</div>
+					
+					<div class="col-md-3" style="display:none;">
+						<div class="card">
+							<div id="current_ping_rate" style="background:#f0f0f0;width:100%;height:251px;color:#00ff00;text-align:center;vertical-align:middle;font-size:24px;line-height:251px;">
+								
+							</div>
+						</div>	 
+					</div>
+					
+					<div class="col-md-3" style="display:none;">
+						<div class="card">
+							<div id="current_ping_rtt" style="background:#f0f0f0;width:100%;height:251px;color:#f0f0f0;text-align:center;vertical-align:middle;font-size:24px;line-height:251px;">
+								
+							</div>
+						</div>	 
+					</div>
+			
+				</div>	
+			
+				<!-- second row -->
+				<div class="row">
+					<div id="cpu_div" class="col-md-4" style="display:none;">
+						<div class="card">
+							<div id="cpu" style="background:#f0f0f0;width:100%;height:280px;color:#00ff00;text-align:center;font-size:24px;line-height:280px;">
+								
+							</div>
+						</div>	 
+					</div>
+
+					<div id="memory_div" class="col-md-4" style="display:none;">
+						<div class="card">	
+							<div id="memory" style="background:#f0f0f0;width:100%;height:280px;color:#00ff00;text-align:center;font-size:24px;line-height:280px;">
+								
+							</div>
+						</div>	 
+					</div>
+					
+					<div id="disk_div" style="width:980px;position:absolute;left:15px;">
+						<div style="position: absolute;
+							top: -30px;
+							left: 25px;
+							background: #151B30;
+							width: 980px;
+							height: 50px;
+							line-height: 30px;
+							padding-left: 8px;
+							color: #98ACD9;">
+							实时文件分区使用率（%）
+						</div>
+						<div class="card">
+							<div id="disk_chart" style="background:#151B30;width:980px;height:280px;color:#00ff00;text-align:center;font-size:24px;line-height:280px;position:absolute;left:25px;">
+								
+							</div>
+						</div>	 
+					</div>
+			
+				</div>
+
+				<div class="fixed-action-btn horizontal click-to-toggle">
+					<a class="btn-floating btn-large red">
+						<i class="material-icons">menu</i>
+					</a>
+					<ul>
+						<li><a href="dashboard.html" class="btn-floating red"><i class="material-icons">track_changes</i></a></li>
+						<li><a href="#" class="btn-floating green"><i class="material-icons">publish</i></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<script src="assets/js/jquery-1.10.2.js"></script>
+		<script src="assets/js/bootstrap.min.js"></script>
+		<script src="assets/js/echarts.min.js"></script>
+		<script src="assets/materialize/js/materialize.min.js"></script>
+		<script src="assets/js/jquery.metisMenu.js"></script>
+		<script src="assets/js/easypiechart.js"></script>
+		<script src="assets/js/easypiechart-data.js"></script>
+		<script src="assets/js/Lightweight-Chart/jquery.chart.js"></script>
+		<script type="text/javascript" src="assets/plugins/layer/layer.js"></script>	
+		
+		<script type="text/javascript" src="pages/common.js"></script>
+		<script type="text/javascript" src="pages/title.js"></script>
+		<script type="text/javascript" src="pages/performanceIndex.js"></script>
+		<script type="text/javascript" src="pages/performanceDetail.js"></script> 
+	</body>
+</html>

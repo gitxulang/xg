@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html> 
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>安天涉密专用运维管理系统（涉密专用计算平台版）V3.0</title>
+		<link href="assets/css/icon.css" rel="stylesheet" />
+		<link href="assets/materialize/css/materialize.min.css" rel="stylesheet" media="screen,projection" />
+		<link href="assets/css/bootstrap.css" rel="stylesheet" />
+		<link href="assets/css/font-awesome.css" rel="stylesheet" />
+		<link href="assets/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
+		<link href="assets/css/custom-styles.css" rel="stylesheet" />
+		<link href='assets/css/font-awesome.css' rel='stylesheet' type='text/css' />
+		<link href="assets/js/Lightweight-Chart/cssCharts.css" rel="stylesheet"> 
+
+		<style>
+			.layer{position:relative;width:100%;}
+			#layer01{}
+			#layer01 img{text-align: center;display: block;height: 35px;padding-top: 35px;margin: auto;}
+			#layer02 > div{height:100%;float:left;position:relative;}
+			.layer02-data{position: absolute;width: auto;height: 100px;top: 45px;left: 65px;}
+			.layer03-panel{height:100%;position:relative;float:left;}
+			.layer03-left-label{position:absolute;}
+			#layer03_left_label01{top:10px;left:10px;height:20px;width:200px;font-weight: bold;}
+			#layer03_left_label02{right:10px;top:10px;color:#036769;height:20px;width:200px;}
+			.layer03-left-chart{position:relative;float:left;height:100%;}
+			#layer03_right_label{position:absolute;top:10px;left:10px;height:20px;width:100px;}
+			.layer03-right-chart{position:relative;float:left;height:100%;width:32%;}
+			.layer03-right-chart-label{text-align: center;width: 130px; margin-left: 20px;}
+			.layer04-panel{position:relative;float:left;height:100%;width:48%;}
+			.layer04-panel-label{width:100%;height:15%;padding-top:5px;}
+			.layer04-panel-chart{width:100%;height:85%;}
+		</style>
+		<script src="assets/js/jquery-1.10.2.js"></script>
+		<script src="assets/js/echarts.min.js"></script>
+		<script src="assets/js/monitor.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				drawLayer02Label($("#layer02_01 canvas").get(0),"统计数量1",80,200);
+				drawLayer02Label($("#layer02_02 canvas").get(0),"统计数量2",80,300);
+				drawLayer02Label($("#layer02_03 canvas").get(0),"统计数量3",80,400);
+				drawLayer02Label($("#layer02_04 canvas").get(0),"统计数量4",50,200);
+				drawLayer02Label($("#layer02_05 canvas").get(0),"统计数量5",40,200);
+				drawLayer02Label($("#layer02_06 canvas").get(0),"统计数量6",50,200);
+
+				renderLegend();
+
+				//饼状图
+				renderChartBar01();
+				//renderChartBar02();
+
+				//存储
+				renderLayer03Right();
+
+				//30天日均线流量趋势
+				renderLayer04Left();
+
+				//集群性能
+				renderLayer04Right();
+			});
+	  </script>
+	</head>
+
+	<body>
+		<div id="page-wrapper">
+			<div class="header"> 
+				<ol class="breadcrumb">
+					<li><a href="#">IP地址管理</a></li>
+					<li class="active">子网管理</li>
+				</ol> 						
+			</div>
+
+			<!-- CONTENT  -->
+			<div id="page-inner">
+				<div class="card" style="margin: 10px auto; padding: 0 10%;"> 
+					<div id="layer02" class="layer row" style="height:15%;">
+						<div id="layer02_01">
+							<div class="layer02-data">
+								<span style="font-size:26px;">400000</span>
+								<span style="font-size:16px;">台</span>
+							</div>
+							<canvas width="200" height="100"></canvas>
+						</div>
+						<div id="layer02_02" style="width:20%;">
+							<div class="layer02-data">
+								<span style="font-size:26px;">400000</span>
+								<span style="font-size:16px;">KB</span>
+							</div>
+							<canvas width="200" height="100"></canvas>
+						</div>
+						<div id="layer02_03" style="width:21%;">
+							<div class="layer02-data">
+								<span style="font-size:26px;">31457280</span>
+								<span style="font-size:16px;">MB</span>
+							</div>
+							<canvas width="200" height="100"></canvas>
+						</div>
+						<div id="layer02_04" style="width:12%;">
+							<div class="layer02-data">
+								<span style="font-size:26px;">50</span>
+								<span style="font-size:16px;">PB</span>
+							</div>
+							<canvas width="120" height="100"></canvas>
+						</div>
+						<div id="layer02_05" style="width:12%;">
+							<div class="layer02-data">
+								<span style="font-size:26px;">25</span>
+								<span style="font-size:16px;">个</span>
+							</div>
+							<canvas width="120" height="100"></canvas>
+						</div>
+						<div id="layer02_06" style="width:12%;">
+							<div class="layer02-data">
+								<span style="font-size:26px;">5</span>
+								<span style="font-size:16px;">个</span>
+							</div>
+							<canvas width="120" height="100"></canvas>
+						</div>
+					</div>
+					<div id="layer03" class="layer row" style="height:40%;">
+						<div id="layer03_left" style="width:48%;" class="layer03-panel">
+							<div id="layer03_left_label01" class="layer03-left-label">接入机型占比</div>
+							<!--
+							<div id="layer03_left_label02" class="layer03-left-label">(左)在线数量 (右)上线率</div>
+							-->
+							<div id="layer03_left_01" class="layer03-left-chart" style="width:16%;">
+								<canvas width="100" height="200" style="margin:30px 0 0 20px;"></canvas>
+							</div>
+							
+							<div id="layer03_left_02" class="layer03-left-chart" style="width:80%; height: 220px;"></div>
+							<!--
+							<div id="layer03_left_03" class="layer03-left-chart" style="width:80%;"></div>
+							-->
+						</div>
+						<div id="layer03_right" style="width:50%;" class="layer03-panel">
+							<div id="layer03_right_label">IP统计</div>
+							<div id="layer03_right_chart01" class="layer03-right-chart">
+								<canvas width="130" height="150" style="margin:40px 0 0 20px;"></canvas>
+								<div class="layer03-right-chart-label">在线已登记</div>
+							</div>
+							<div id="layer03_right_chart02" class="layer03-right-chart">
+								<canvas width="130" height="150" style="margin:40px 0 0 20px;"></canvas>
+								<div class="layer03-right-chart-label">在线未登记</div>
+							</div>
+							<div id="layer03_right_chart03" class="layer03-right-chart">
+								<canvas width="130" height="150" style="margin:40px 0 0 20px;"></canvas>
+								<div class="layer03-right-chart-label">在线非法占用</div>
+							</div>
+						</div>
+					</div>
+					<div id="layer04" class="layer row" style="height:30%;">
+						<div id="layer04_left" class="layer04-panel">
+							<div id="layer04_left_label" class="layer04-panel-label">30天日非法IP变化趋势</div>
+							<div id="layer04_left_chart" class="layer04-panel-chart" style="width: 100%; height: 220px;"></div>
+						</div>
+						<div id="layer04_right" class="layer04-panel">
+							<div id="layer04_right_label" class="layer04-panel-label">
+								<span>IP数量</span><span style="color:#00A09A;"></span>
+							</div>
+							<div id="layer04_right_chart" class="layer04-panel-chart" style="width: 100%; height: 220px;"></div>
+						</div>
+					</div>
+				</div>
+			
+				<div class="row">
+					<div class="col-md-12">
+						<div class="card">
+							<div class="card-content">
+								<div class="row">
+									<div class="col-md-1">
+										<div>
+											<label>
+												<select class="form-control">
+													<option value="ip">子网名称</option>
+													<option value="name">所属部门</option>
+													<option value="dept">子网网段</option>
+													<option value="state">监控状态</option>
+												</select>
+											</label>
+										</div>
+									</div>
+									
+									
+									<div class="col-md-10">
+										<div>
+											<label>搜索</label>
+											<label>
+												<input type="search" class="form-control1">
+											</label>
+										</div>
+									</div>
+									
+									<div class="col-md-1">
+										<div align="right">
+											<a href="ipSubnetAdd.html" class="waves-effect waves-light btn">
+											<!--	<i class="material-icons right">add</i> -->
+												新 增
+											</a>
+										</div>
+									</div>
+								</div>
+							
+								<div class="table-responsive">
+									<table class="table table-striped table-bordered table-hover" id="tableID">
+										<thead>
+											<tr>
+												<th class="center">编号</th>
+												<th>子网地址</th>
+												<th>子网名称</th>
+												<th>所属部门</th>
+												<th>子网掩码</th>
+												<th>负责人</th>
+												<th>监控状态</th>
+												<th>子网容量</th>
+												<th>使用率</th>
+												<th>在线IP数</th>
+												<th>在线登记IP数</th>
+												<th>在线未登记IP数</th>
+												<th>非法占用IP数</th>
+												<th class="center" style="cursor: default;">操作</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr class="odd gradeX">
+												<td class="center"><input type="checkbox" checked/>1</td>
+												<td>192.168.1.0</td>
+												<td>网络组</td>
+												<td>信工所四室</td>
+												<td>255.255.255.0</td>
+												<td>李策</td>
+												<td>已监控</td>
+												<td>254</td>
+												<td>50%</td>
+												<td>100</td>
+												<td>80</td>
+												<td>10</td>
+												<td>10</td>
+												<td class="center">
+													<a href="ipSubnetEdit.html"><i class="my-material-icons">mode_edit</i></a>
+													<a href="ipSubnetDetail.html"><i class="my-material-icons">search</i></a>
+												</td>
+											</tr>
+											<tr class="odd gradeX">
+												<td class="center"><input type="checkbox" checked/>1</td>
+												<td>192.168.1.0</td>
+												<td>网络组</td>
+												<td>信工所四室</td>
+												<td>255.255.255.0</td>
+												<td>李策</td>
+												<td>已监控</td>
+												<td>254</td>
+												<td>50%</td>
+												<td>100</td>
+												<td>80</td>
+												<td>10</td>
+												<td>10</td>
+												<td class="center">
+													<a href="ipSubnetEdit.html"><i class="my-material-icons">mode_edit</i></a>
+													<a href="ipSubnetDetail.html"><i class="my-material-icons">search</i></a>
+												</td>
+											</tr>
+											<tr class="odd gradeX">
+												<td class="center"><input type="checkbox" checked/>1</td>
+												<td>192.168.1.0</td>
+												<td>网络组</td>
+												<td>信工所四室</td>
+												<td>255.255.255.0</td>
+												<td>李策</td>
+												<td>已监控</td>
+												<td>254</td>
+												<td>50%</td>
+												<td>100</td>
+												<td>80</td>
+												<td>10</td>
+												<td>10</td>
+												<td class="center">
+													<a href="ipSubnetEdit.html"><i class="my-material-icons">mode_edit</i></a>
+													<a href="ipSubnetDetail.html"><i class="my-material-icons">search</i></a>
+												</td>
+											</tr>
+											<tr class="odd gradeX">
+												<td class="center"><input type="checkbox" checked/>1</td>
+												<td>192.168.1.0</td>
+												<td>网络组</td>
+												<td>信工所四室</td>
+												<td>255.255.255.0</td>
+												<td>李策</td>
+												<td>已监控</td>
+												<td>254</td>
+												<td>50%</td>
+												<td>100</td>
+												<td>80</td>
+												<td>10</td>
+												<td>10</td>
+												<td class="center">
+													<a href="ipSubnetEdit.html"><i class="my-material-icons">mode_edit</i></a>
+													<a href="ipSubnetDetail.html"><i class="my-material-icons">search</i></a>
+												</td>
+											</tr>
+											<tr class="odd gradeX">
+												<td class="center"><input type="checkbox" checked/>1</td>
+												<td>192.168.1.0</td>
+												<td>网络组</td>
+												<td>信工所四室</td>
+												<td>255.255.255.0</td>
+												<td>李策</td>
+												<td>已监控</td>
+												<td>254</td>
+												<td>50%</td>
+												<td>100</td>
+												<td>80</td>
+												<td>10</td>
+												<td>10</td>
+												<td class="center">
+													<a href="ipSubnetEdit.html"><i class="my-material-icons">mode_edit</i></a>
+													<a href="ipSubnetDetail.html"><i class="my-material-icons">search</i></a>
+												</td>
+											</tr>
+											<tr class="odd gradeX">
+												<td class="center"><input type="checkbox" checked/>1</td>
+												<td>192.168.1.0</td>
+												<td>网络组</td>
+												<td>信工所四室</td>
+												<td>255.255.255.0</td>
+												<td>李策</td>
+												<td>已监控</td>
+												<td>254</td>
+												<td>50%</td>
+												<td>100</td>
+												<td>80</td>
+												<td>10</td>
+												<td>10</td>
+												<td class="center">
+													<a href="ipSubnetEdit.html"><i class="my-material-icons">mode_edit</i></a>
+													<a href="ipSubnetDetail.html"><i class="my-material-icons">search</i></a>
+												</td>
+											</tr>
+											<tr class="odd gradeX">
+												<td class="center"><input type="checkbox" checked/>1</td>
+												<td>192.168.1.0</td>
+												<td>网络组</td>
+												<td>信工所四室</td>
+												<td>255.255.255.0</td>
+												<td>李策</td>
+												<td>已监控</td>
+												<td>254</td>
+												<td>50%</td>
+												<td>100</td>
+												<td>80</td>
+												<td>10</td>
+												<td>10</td>
+												<td class="center">
+													<a href="ipSubnetEdit.html"><i class="my-material-icons">mode_edit</i></a>
+													<a href="ipSubnetDetail.html"><i class="my-material-icons">search</i></a>
+												</td>
+											</tr>
+											<tr class="odd gradeX">
+												<td class="center"><input type="checkbox" checked/>1</td>
+												<td>192.168.1.0</td>
+												<td>网络组</td>
+												<td>信工所四室</td>
+												<td>255.255.255.0</td>
+												<td>李策</td>
+												<td>已监控</td>
+												<td>254</td>
+												<td>50%</td>
+												<td>100</td>
+												<td>80</td>
+												<td>10</td>
+												<td>10</td>
+												<td class="center">
+													<a href="ipSubnetEdit.html"><i class="my-material-icons">mode_edit</i></a>
+													<a href="ipSubnetDetail.html"><i class="my-material-icons">search</i></a>
+												</td>
+											</tr>
+											<tr class="odd gradeX">
+												<td class="center"><input type="checkbox" checked/>1</td>
+												<td>192.168.1.0</td>
+												<td>网络组</td>
+												<td>信工所四室</td>
+												<td>255.255.255.0</td>
+												<td>李策</td>
+												<td>已监控</td>
+												<td>254</td>
+												<td>50%</td>
+												<td>100</td>
+												<td>80</td>
+												<td>10</td>
+												<td>10</td>
+												<td class="center">
+													<a href="ipSubnetEdit.html"><i class="my-material-icons">mode_edit</i></a>
+													<a href="ipSubnetDetail.html"><i class="my-material-icons">search</i></a>
+												</td>
+											</tr>
+											<tr class="odd gradeX">
+												<td class="center"><input type="checkbox" checked/>1</td>
+												<td>192.168.1.0</td>
+												<td>网络组</td>
+												<td>信工所四室</td>
+												<td>255.255.255.0</td>
+												<td>李策</td>
+												<td>已监控</td>
+												<td>254</td>
+												<td>50%</td>
+												<td>100</td>
+												<td>80</td>
+												<td>10</td>
+												<td>10</td>
+												<td class="center">
+													<a href="ipSubnetEdit.html"><i class="my-material-icons">mode_edit</i></a>
+													<a href="ipSubnetDetail.html"><i class="my-material-icons">search</i></a>
+												</td>
+											</tr>
+											<tr class="odd gradeX">
+												<td class="center"><input type="checkbox" checked/>1</td>
+												<td>192.168.1.0</td>
+												<td>网络组</td>
+												<td>信工所四室</td>
+												<td>255.255.255.0</td>
+												<td>李策</td>
+												<td>已监控</td>
+												<td>254</td>
+												<td>50%</td>
+												<td>100</td>
+												<td>80</td>
+												<td>10</td>
+												<td>10</td>
+												<td class="center">
+													<a href="ipSubnetEdit.html"><i class="my-material-icons">mode_edit</i></a>
+													<a href="ipSubnetDetail.html"><i class="my-material-icons">search</i></a>
+												</td>
+											</tr>
+											<tr class="odd gradeX">
+												<td class="center"><input type="checkbox" checked/>1</td>
+												<td>192.168.1.0</td>
+												<td>网络组</td>
+												<td>信工所四室</td>
+												<td>255.255.255.0</td>
+												<td>李策</td>
+												<td>已监控</td>
+												<td>254</td>
+												<td>50%</td>
+												<td>100</td>
+												<td>80</td>
+												<td>10</td>
+												<td>10</td>
+												<td class="center">
+													<a href="ipSubnetEdit.html"><i class="my-material-icons">mode_edit</i></a>
+													<a href="ipSubnetDetail.html"><i class="my-material-icons">search</i></a>
+												</td>
+											</tr>
+											<tr class="odd gradeX">
+												<td class="center"><input type="checkbox" checked/>1</td>
+												<td>192.168.1.0</td>
+												<td>网络组</td>
+												<td>信工所四室</td>
+												<td>255.255.255.0</td>
+												<td>李策</td>
+												<td>已监控</td>
+												<td>254</td>
+												<td>50%</td>
+												<td>100</td>
+												<td>80</td>
+												<td>10</td>
+												<td>10</td>
+												<td class="center">
+													<a href="ipSubnetEdit.html"><i class="my-material-icons">mode_edit</i></a>
+													<a href="ipSubnetDetail.html"><i class="my-material-icons">search</i></a>
+												</td>
+											</tr>
+											<tr class="odd gradeX">
+												<td class="center"><input type="checkbox" checked/>1</td>
+												<td>192.168.1.0</td>
+												<td>网络组</td>
+												<td>信工所四室</td>
+												<td>255.255.255.0</td>
+												<td>李策</td>
+												<td>已监控</td>
+												<td>254</td>
+												<td>50%</td>
+												<td>100</td>
+												<td>80</td>
+												<td>10</td>
+												<td>10</td>
+												<td class="center">
+													<a href="ipSubnetEdit.html"><i class="my-material-icons">mode_edit</i></a>
+													<a href="ipSubnetDetail.html"><i class="my-material-icons">search</i></a>
+												</td>
+											</tr>
+											<tr class="odd gradeX">
+												<td class="center"><input type="checkbox" checked/>1</td>
+												<td>192.168.1.0</td>
+												<td>网络组</td>
+												<td>信工所四室</td>
+												<td>255.255.255.0</td>
+												<td>李策</td>
+												<td>已监控</td>
+												<td>254</td>
+												<td>50%</td>
+												<td>100</td>
+												<td>80</td>
+												<td>10</td>
+												<td>10</td>
+												<td class="center">
+													<a href="ipSubnetEdit.html"><i class="my-material-icons">mode_edit</i></a>
+													<a href="ipSubnetDetail.html"><i class="my-material-icons">search</i></a>
+												</td>
+											</tr>
+											<tr class="odd gradeX">
+												<td class="center"><input type="checkbox" checked/>1</td>
+												<td>192.168.1.0</td>
+												<td>网络组</td>
+												<td>信工所四室</td>
+												<td>255.255.255.0</td>
+												<td>李策</td>
+												<td>已监控</td>
+												<td>254</td>
+												<td>50%</td>
+												<td>100</td>
+												<td>80</td>
+												<td>10</td>
+												<td>10</td>
+												<td class="center">
+													<a href="ipSubnetEdit.html"><i class="my-material-icons">mode_edit</i></a>
+													<a href="ipSubnetDetail.html"><i class="my-material-icons">search</i></a>
+												</td>
+											</tr>
+											<tr class="odd gradeX">
+												<td class="center"><input type="checkbox" checked/>1</td>
+												<td>192.168.1.0</td>
+												<td>网络组</td>
+												<td>信工所四室</td>
+												<td>255.255.255.0</td>
+												<td>李策</td>
+												<td>已监控</td>
+												<td>254</td>
+												<td>50%</td>
+												<td>100</td>
+												<td>80</td>
+												<td>10</td>
+												<td>10</td>
+												<td class="center">
+													<a href="ipSubnetEdit.html"><i class="my-material-icons">mode_edit</i></a>
+													<a href="ipSubnetDetail.html"><i class="my-material-icons">search</i></a>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+								
+								
+								
+								<div class="row">
+									<div class="col-sm-6">
+										<div class="pagination">
+											<label>
+												<select class="form-control input-sm">
+													<option value="10">10</option>
+													<option value="25">25</option>
+													<option value="50">50</option>
+													<option value="100">100</option>
+												</select> 
+											</label>
+											<label>
+												记录 / 页，第 1/10 页
+											</label>
+										</div>
+									</div>
+									
+									<div class="col-sm-6">
+										<div class="dataTables_paginate paging_simple_numbers" align="right">
+											<ul class="pagination">
+												<li class="paginate_button previous" tabindex="0" id="dataTables-example_previous">
+													<a href="#">首页</a>
+												</li>
+												<li class="paginate_button" tabindex="0">
+													<a href="#">上一页</a>
+												</li>
+												<li class="paginate_button " tabindex="0">
+													<a href="#">下一页</a>
+												</li>
+												<li class="paginate_button next" tabindex="0">
+													<a href="#">尾页</a>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								
+                            
+							</div>
+						</div>
+					</div>
+				</div>
+               
+
+				<div class="fixed-action-btn horizontal click-to-toggle">
+					<a class="btn-floating btn-large red">
+						<i class="material-icons">menu</i>
+					</a>
+					<ul>
+						<li><a href="hardWare.html" class="btn-floating red"><i class="material-icons">track_changes</i></a></li>
+						<li><a href="#" class="btn-floating green"><i class="material-icons">publish</i></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<script src="assets/js/bootstrap.min.js"></script>
+		<script src="assets/materialize/js/materialize.min.js"></script>
+		<script src="assets/js/jquery.metisMenu.js"></script>
+		<script src="assets/js/Lightweight-Chart/jquery.chart.js"></script>
+		<script src="assets/js/dataTables/jquery.dataTables.js"></script>
+		<script src="assets/js/dataTables/dataTables.bootstrap.js"></script>
+		<script>
+			$(document).ready(function () {
+			//    $('#dataTables-example').dataTable();
+			});
+		</script>
+		<script src="assets/js/tablecommon.js"></script>
+	</body>
+</html>

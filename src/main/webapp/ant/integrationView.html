@@ -1,0 +1,602 @@
+﻿<!DOCTYPE html>
+<html> 
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>安天涉密专用运维管理系统（涉密专用计算平台版）V3.0</title>
+		<link href="assets/css/icon.css" rel="stylesheet" />
+		<link href="assets/materialize/css/materialize.min.css" rel="stylesheet" media="screen,projection" />
+		<link href="assets/css/bootstrap.css" rel="stylesheet" />
+		<link href="assets/css/font-awesome.css" rel="stylesheet" />
+		<link href="assets/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
+		<link href="assets/css/custom-styles.css" rel="stylesheet" />
+		<link href='assets/css/font-awesome.css' rel='stylesheet' type='text/css' />
+		<link href="assets/js/Lightweight-Chart/cssCharts.css" rel="stylesheet"> 
+	</head>
+
+	<body>
+		<div id="page-wrapper">
+			<div class="header"> 
+				<ol class="breadcrumb">
+					<li><a href="#">数据一体化</a></li>
+					<li><a href="#">总览</a></li>
+					<li class="active">192.168.100.100</li>
+				</ol> 						
+			</div>
+		
+			<div id="page-inner">
+
+				<div class="dashboard-cards"> 
+					<div class="row">
+						<div class="col-xs-12 col-sm-12 col-md-3">
+							<div class="card horizontal cardIcon waves-effect waves-dark">
+								<div class="card-image orange">
+									<i class="material-icons dp48">airplay</i>
+								</div>
+								<div class="card-stacked blue">
+									<div class="card-action">
+										<strong><font color="white">在线：25台</font></strong>
+									</div>
+									<div class="card-action">
+										<strong><font color="red">离线：10台</font></strong>
+									</div>
+								</div>
+							</div> 
+						</div>
+						
+						<div class="col-xs-12 col-sm-12 col-md-3">
+							<div class="card horizontal cardIcon waves-effect waves-dark">
+								<div class="card-image orange">
+									<i class="material-icons dp48">language</i>
+								</div>
+								<div class="card-stacked blue">
+									<div class="card-action">
+										<strong>桌面机：15台</strong>
+									</div>
+									<div class="card-action">
+										<strong>服务器：20台</strong>
+									</div>
+								</div>
+							</div> 
+						</div>	
+
+						<div class="col-xs-12 col-sm-12 col-md-3">
+							<div class="card horizontal cardIcon waves-effect waves-dark">
+								<div class="card-image orange">
+									<i class="material-icons dp48">settings_input_component</i>
+								</div>
+								<div class="card-stacked blue">
+									<div class="card-action">
+										<strong><font color="white">名录内软件：15个</font></strong>
+									</div>
+									<div class="card-action">
+										<strong><font color="red">自签名软件：10个</font></strong>
+									</div>
+								</div>
+							</div> 
+						</div>	
+						
+						<div class="col-xs-12 col-sm-12 col-md-3">
+							<div class="card horizontal cardIcon waves-effect waves-dark">
+								<div class="card-image orange">
+									<i class="material-icons dp48">language</i>
+								</div>
+								<div class="card-stacked blue">
+									<div class="card-action">
+										<strong>账号总数：50个</strong>
+									</div>
+									<div class="card-action">
+										<strong>监听端口数：50个</strong>
+									</div>
+								</div>
+							</div> 
+						</div>	
+						
+					</div>	
+				</div>	
+			
+		
+				<div class="dashboard-cards"> 
+					<div class="row">
+						<div class="col-xs-12 col-sm-12 col-md-3">
+							<div class="card horizontal cardIcon waves-effect waves-dark">
+								<div class="card-image orange">
+									<i class="material-icons dp48">airplay</i>
+								</div>
+								<div class="card-stacked blue">
+									<div class="card-action">
+										<strong><font color="green">正常终端：25台</font></strong>
+									</div>
+									<div class="card-action">
+										<strong><font color="red">异常终端：10台</font></strong>
+									</div>
+								</div>
+							</div> 
+						</div>
+						
+						<div class="col-xs-12 col-sm-12 col-md-3">
+							<div class="card horizontal cardIcon waves-effect waves-dark">
+								<div class="card-image orange">
+									<i class="material-icons dp48">language</i>
+								</div>
+								<div class="card-stacked blue">
+									<div class="card-action">
+										<strong>注册账号数：50个</strong>
+									</div>
+									<div class="card-action">
+										<strong>实际账号数：60个</strong>
+									</div>
+								</div>
+							</div> 
+						</div>	
+
+						<div class="col-xs-12 col-sm-12 col-md-3">
+							<div class="card horizontal cardIcon waves-effect waves-dark">
+								<div class="card-image orange">
+									<i class="material-icons dp48">settings_input_component</i>
+								</div>
+								<div class="card-stacked blue">
+									<div class="card-action">
+										<strong><font color="red">680次</font></strong>
+									</div>
+									<div class="card-action">
+										<strong>遭遇ARP攻击次数</strong>
+									</div>
+								</div>
+							</div> 
+						</div>	
+						
+						<div class="col-xs-12 col-sm-12 col-md-3">
+							<div class="card horizontal cardIcon waves-effect waves-dark">
+								<div class="card-image orange">
+									<i class="material-icons dp48">settings_input_component</i>
+								</div>
+								<div class="card-stacked blue">
+									<div class="card-action">
+										<strong><font color="red">10次</font></strong>
+									</div>
+									<div class="card-action">
+										<strong>违规访问统计</strong>
+									</div>
+								</div>
+							</div> 
+						</div>	
+					</div>	
+				</div>	
+				
+				<div class="row">
+					
+					<div class="col-md-12">
+						<div class="card">
+
+						
+							<div class="card-image">
+								<ul class="collection">
+									<li class="collection-item avatar">
+										<i class="material-icons circle red">volume_up</i>
+										<span class="mytitle">主机审计策略<a href="#">（更多）</a></span>
+										<p>
+											<font face="微软雅黑">
+												审计指定目录下文件的增、删、改、复制、移动、重命名等行为审计，包括：文件名、计算机账户、主机IP地址、审计时间等！
+											</font>
+										</p>
+										<a href="#" class="secondary-content">
+											<div class="switch">
+												<label>15台（Off）<input type="checkbox" checked disabled><span class="lever"></span><font color="red">20台（On）</font></label>
+											</div>
+										</a>
+									</li>
+									<li class="collection-item avatar">
+										<i class="material-icons circle yellow">volume_up</i>
+										<span class="mytitle">配置管理策略<a href="#">（更多）</a></span>
+										<p>
+											<font face="微软雅黑">
+												审计移动存储设备接入、移除、文件流转、移动存储设备内所有文件的新建、修改、删除、拷贝、重命名等行为产生审计日志！
+											</font>
+										</p>
+										<a href="#" class="secondary-content">
+											<div class="switch">
+												<label>15台（Off）<input type="checkbox" checked disabled><span class="lever"></span><font color="red">20台（On）</font></label>
+											</div>
+										</a>
+									</li>
+									<li class="collection-item avatar">
+										<i class="material-icons circle yellow">volume_up</i>
+										<span class="mytitle">配置管理策略<a href="#">（更多）</a></span>
+										<p>
+											<font face="微软雅黑">
+												审计主机光盘刻录行为，日志内容包括主机名称、MAC、账户名称、刻录文件名称、文件路径、文件大小、光盘类型、刻结果、刻录时间等！
+											</font>
+										</p>
+										<a href="#" class="secondary-content">
+											<div class="switch">
+												<label>15台（Off）<input type="checkbox" checked disabled><span class="lever"></span><font color="red">20台（On）</font></label>
+											</div>
+										</a>
+									</li>
+									<li class="collection-item avatar">
+										<i class="material-icons circle orange">volume_up</i>
+										<span class="mytitle">主机审计策略<a href="#">（更多）</a></span>
+										<p>
+											<font face="微软雅黑">
+												审计主机打印输出设备（打印机）的行为和结果进行审计，日志包括：打印文件名、打印时间、打印页数及份数、打印机名称、主机账户等！
+											</font>
+										</p>
+										<a href="#" class="secondary-content">
+											<div class="switch">
+												<label>15台（Off）<input type="checkbox" checked disabled><span class="lever"></span><font color="red">20台（On）</font></label>
+											</div>
+										</a>
+									</li>
+									<li class="collection-item avatar">
+										<i class="material-icons circle orange">volume_up</i>
+										<span class="mytitle">主机审计策略<a href="#">（更多）</a></span>
+										<p>
+											<font face="微软雅黑">
+												审计当受控主机受到ARP攻击时，系统能够对攻击行为进行审计并拦截！
+											</font>
+										</p>
+										<a href="#" class="secondary-content">
+											<div class="switch">
+												<label>15台（Off）<input type="checkbox" checked disabled><span class="lever"></span><font color="red">20台（On）</font></label>
+											</div>
+										</a>
+									</li>
+								</ul>
+							</div>  
+						</div>	 
+					</div>
+					
+
+			
+				</div>	
+			
+
+				<div class="row">
+					<div class="col-md-6">
+						<div class="card">
+							<div class="my-card-action">
+								异常打印刻录行为统计<a href="#">（更多）</a>
+							</div>
+							
+							
+							<table class="table">
+								<thead>
+									<tr class="success">
+										<td><strong>编号</strong></td>
+										<td><strong>打印机</strong></td>
+										<td><strong>文件名</strong></td>
+										<td><strong>类型</strong></td>
+										<td><strong>份数</strong></td>
+										<td><strong>页数</strong></td>
+										<td><strong>时间</strong></td>
+										<td><strong>结果</strong></td>
+									</tr>
+								</thead>
+								<tbody>
+									<tr class="my-table-col">
+										<td>1</td>
+										<td>奔图2700一体机</td>
+										<td>运维开发指南.wps</td>
+										<td>秘密</td>
+										<td>10</td>
+										<td>52</td>
+										<td>2020-05-07 12:00:00</td>
+										<td>成功</td>
+									</tr>
+									<tr class="success">
+										<td>2</td>
+										<td>奔图2700一体机</td>
+										<td>运维开发指南.wps</td>
+										<td>秘密</td>
+										<td>10</td>
+										<td>52</td>
+										<td>2020-05-07 12:00:00</td>
+										<td>成功</td>
+									</tr>
+									<tr class="my-table-col">
+										<td>3</td>
+										<td>奔图2700一体机</td>
+										<td>运维开发指南.wps</td>
+										<td>秘密</td>
+										<td>10</td>
+										<td>52</td>
+										<td>2020-05-07 12:00:00</td>
+										<td>成功</td>
+									</tr>
+									<tr class="success">
+										<td>4</td>
+										<td>奔图2700一体机</td>
+										<td>运维开发指南.wps</td>
+										<td>秘密</td>
+										<td>10</td>
+										<td>52</td>
+										<td>2020-05-07 12:00:00</td>
+										<td>成功</td>
+									</tr>
+									<tr class="my-table-col">
+										<td>5</td>
+										<td>奔图2700一体机</td>
+										<td>运维开发指南.wps</td>
+										<td>秘密</td>
+										<td>10</td>
+										<td>52</td>
+										<td>2020-05-07 12:00:00</td>
+										<td>成功</td>
+									</tr>
+									<tr class="success">
+										<td>6</td>
+										<td>奔图2700一体机</td>
+										<td>运维开发指南.wps</td>
+										<td>秘密</td>
+										<td>10</td>
+										<td>52</td>
+										<td>2020-05-07 12:00:00</td>
+										<td>成功</td>
+									</tr>
+								</tbody>
+							</table>
+								
+						</div>	 
+					</div>
+			
+			
+					<div class="col-md-6">
+						<div class="card">
+							<div class="my-card-action">
+								异常访问敏感资源软件<a href="#">（更多）</a>
+							</div>
+						
+							<table class="table">
+								<thead>
+									<tr class="success">
+										<td><strong>编号</strong></td>
+										<td><strong>软件名</strong></td>
+										<td><strong>主机IP</strong></td>
+										<td><strong>软件类型</strong></td>
+										<td><strong>资源名称</strong></td>
+										<td><strong>世界</strong></td>
+
+									</tr>
+								</thead>
+								<tbody>
+									<tr class="my-table-col">
+										<td>1</td>
+										<td>中孚主机登录V3.0</td>
+										<td>192.168.100.105</td>
+										<td>名录内</td>
+										<td>/etc/bin/mstan/tomcat</td>
+										<td>2020-05-07 12:00:00</td>
+									</tr>
+									
+									<tr class="success">
+										<td>1</td>
+										<td>中孚主机登录V3.0</td>
+										<td>192.168.100.105</td>
+										<td>名录内</td>
+										<td>/etc/bin/mstan/tomcat</td>
+										<td>2020-05-07 12:00:00</td>
+									</tr>
+									<tr class="my-table-col">
+										<td>1</td>
+										<td>中孚主机登录V3.0</td>
+										<td>192.168.100.105</td>
+										<td>名录内</td>
+										<td>/etc/bin/mstan/tomcat</td>
+										<td>2020-05-07 12:00:00</td>
+									</tr>
+									
+									<tr class="success">
+										<td>1</td>
+										<td>中孚主机登录V3.0</td>
+										<td>192.168.100.105</td>
+										<td>名录内</td>
+										<td>/etc/bin/mstan/tomcat</td>
+										<td>2020-05-07 12:00:00</td>
+									</tr>
+									<tr class="my-table-col">
+										<td>1</td>
+										<td>中孚主机登录V3.0</td>
+										<td>192.168.100.105</td>
+										<td>名录内</td>
+										<td>/etc/bin/mstan/tomcat</td>
+										<td>2020-05-07 12:00:00</td>
+									</tr>
+									
+									<tr class="success">
+										<td>1</td>
+										<td>中孚主机登录V3.0</td>
+										<td>192.168.100.105</td>
+										<td>名录内</td>
+										<td>/etc/bin/mstan/tomcat</td>
+										<td>2020-05-07 12:00:00</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>	 
+					</div>
+				</div>
+				
+				
+				
+				<div class="row">
+					<div class="col-md-6">
+						<div class="card">
+							<div class="my-card-action">
+								异常端口统计（TOP 10）
+							</div>
+							
+							<div id="show2" style="width:100%;height:300px;color:#00ff00;text-align:center;font-size:24px;line-height:300px;">
+						
+							</div>
+						</div>	 
+					</div>
+					
+					
+										
+					<div class="col-md-6">
+						<div class="card">
+							<div class="my-card-action">
+								告警状态统计
+							</div>
+							
+							<div id="show1" style="width:100%;height:300px;color:#00ff00;text-align:center;font-size:24px;line-height:300px;">
+							</div>
+						</div>	 
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<script src="assets/js/jquery-1.10.2.js"></script>
+		<script src="assets/js/bootstrap.min.js"></script>
+		<script src="assets/js/echarts.min.js"></script>
+		<script src="assets/materialize/js/materialize.min.js"></script>
+		<script src="assets/js/jquery.metisMenu.js"></script>
+		<script src="assets/js/Lightweight-Chart/jquery.chart.js"></script>
+		<script src="assets/js/dataTables/jquery.dataTables.js"></script>
+		<script src="assets/js/dataTables/dataTables.bootstrap.js"></script>
+		<script type="text/javascript" src="./assets/plugins/layer/layer.js"></script>	
+
+	
+		<script>
+			var myChart = echarts.init(document.getElementById('show1'));
+
+			option = {
+				backgroundColor: '#f0f0f0',
+				
+				title: {
+					text: '告警状态统计',
+					left: 'center',
+					padding: 5,
+					textStyle: {
+						fontSize: 15,
+						fontWeight: "bolder",
+					}
+				},
+				tooltip: {
+					trigger: 'item',
+					formatter: '{a} <br/>{b} : {c} ({d}%)'
+				},
+				legend: {
+					orient: 'vertical',
+					left: 'left',
+					data: ['连通性', 'CPU信息', '内存信息', '分区信息', '读写信息', '接口信息', '进程信息']
+				},
+				series: [
+					{
+						name: '访问来源',
+						type: 'pie',
+						radius: '65%',
+						center: ['50%', '55%'],
+						data: [
+							{value: 335, name: '连通性'},
+							{value: 310, name: 'CPU信息'},
+							{value: 234, name: '内存信息'},
+							{value: 135, name: '分区信息'},
+							{value: 1548, name: '读写信息'},
+							{value: 135, name: '接口信息'},
+							{value: 1548, name: '进程信息'}
+						],
+						emphasis: {
+							itemStyle: {
+								shadowBlur: 10,
+								shadowOffsetX: 0,
+								shadowColor: 'rgba(0, 0, 0, 0.5)'
+							}
+						}
+					}
+				]
+			};
+
+			myChart.setOption(option);
+		</script>
+
+
+		<script>
+			var myChart = echarts.init(document.getElementById('show2'));
+
+			option = {
+				backgroundColor: '#f0f0f0',
+				
+				title: {
+					text: '',
+				},
+				
+				tooltip: {
+					trigger: 'axis'
+				},
+				
+				legend: {
+					data: ['监听端口数', '异常端口数']
+				},
+				
+				toolbox: {
+					show: false,
+					feature: {
+						dataView: {show: true, readOnly: false},
+						magicType: {show: true, type: ['line', 'bar']},
+						restore: {show: true},
+						saveAsImage: {show: true}
+					}
+				},
+				
+				calculable: true,
+				xAxis: [
+					{
+						type: 'category',
+						data: ['192.168.100.100', '192.168.100.101', '192.168.100.102', '192.168.100.103', '192.168.100.104','192.168.100.105', '192.168.100.106', '192.168.100.107', '192.168.100.108', '192.168.100.109']
+					}
+				],
+				
+				yAxis: [
+					{
+						type: 'value'
+					}
+				],
+				
+				series: [
+					{
+						name: '监听端口数',
+						type: 'bar',
+						data: [15, 35, 48, 27, 29, 15, 35, 48, 27, 29],
+						markPoint: {
+							data: [
+								{type: 'max', name: '最大值'},
+								{type: 'min', name: '最小值'}
+							]
+						},
+						markLine: {
+							data: [
+								{type: 'average', name: '平均值'}
+							]
+						}
+					},
+					{
+						name: '异常端口数',
+						type: 'bar',
+						data: [5, 1, 2, 2, 0, 5, 5, 8, 7, 9],
+						markPoint: {
+							data: [
+								{name: '年最高', value: 182.2, xAxis: 7, yAxis: 183},
+								{name: '年最低', value: 2.3, xAxis: 11, yAxis: 3}
+							]
+						},
+						markLine: {
+							data: [
+								{type: 'average', name: '平均值'}
+							]
+						}
+					}
+				]
+			};
+
+
+			myChart.setOption(option);
+		</script>	
+		
+				
+		
+
+	</body>
+</html>

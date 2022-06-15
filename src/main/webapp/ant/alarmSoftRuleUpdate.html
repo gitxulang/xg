@@ -1,0 +1,156 @@
+﻿<!DOCTYPE html>
+<html> 
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>安天涉密专用运维管理系统（涉密专用计算平台版）V3.0</title>
+		<link href="assets/css/icon.css" rel="stylesheet" />
+		<link href="assets/materialize/css/materialize.min.css" rel="stylesheet" media="screen,projection" />
+		<link href="assets/css/bootstrap.css" rel="stylesheet" />
+		<link href="assets/css/font-awesome.css" rel="stylesheet" />
+		<link href="assets/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
+		<link href="assets/css/custom-styles.css" rel="stylesheet" />
+		<link href='assets/css/font-awesome.css' rel='stylesheet' type='text/css' />
+		<link href="assets/js/Lightweight-Chart/cssCharts.css" rel="stylesheet"> 
+	</head>
+
+	<body>
+		<div id="page-wrapper">
+			<div class="header"> 
+				<ol class="breadcrumb">
+					<li><a href="#">告警信息管理</a></li>
+					<li><a href="#">告警规则管理</a></li>
+					<li><a href="javascript:jumpPage('alarmSoftRule.html')">软件节点规则管理</a></li>
+					<li><a href="#">修改</a></li>
+				</ol> 						
+			</div>
+			<div id="page-inner">
+				<input id="ruleId" type="text" hidden></input>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="card">
+							<div class="card-action">
+								阈值规则修改
+							</div>
+							<div class="card-content">
+	
+								<form class="col s12">
+								
+									<div class="row">
+										<div class="input-field col s6">
+											<input id="name" type="text" readonly value=""></input>
+											<label for="name" class="myactive">软件名称（禁止修改）</label>
+										</div>
+										
+										<div class="input-field col s6">
+											<input id="ip" type="text" readonly value="">
+											<label for="ip" class="myactive">IP地址（禁止修改）</label>
+										</div>
+									</div>
+									
+									<div class="row">
+										<div class="input-field col s6">
+											<input id="content" type="text" readonly value=""></input>
+											<label for="content" class="myactive">告警内容（禁止修改）</label>
+										</div>
+										
+										<div class="input-field col s6">
+											<select id="enabled" class="my-form-select">
+													<option value="0">启用</option>
+													<option value="1">禁用</option>
+											</select> 
+											<label for="enabled" class="myactive">告警使能</label>
+										</div>
+									</div>
+									
+									<div class="row">
+										<div class="input-field col s6">
+											<input id="unit" type="text" readonly value="--"></input>
+											<label for="unit" class="myactive">规则单位（禁止修改）</label>
+										</div>
+										
+										<div class="input-field col s6">
+											<select id="seq" class="my-form-select">
+													<option value="1">降序</option>
+													<option value="2">升序</option>
+											</select> 
+											<label for="seq" class="myactive">比较顺序</label>
+										</div>
+									</div>
+									
+									<div class="row">
+										<div class="input-field col s6">
+											<input id="r_value1" type="text" class="validate" value=""></input>
+											<label for="r_value1" class="myactive">一级阈值</label>
+										</div>
+										
+										<div class="input-field col s6">
+											<input id="r_value2" type="text" class="validate" value=""></input>
+											<label for="r_value2" class="myactive">二级阈值</label>
+										</div>
+									</div>
+									
+									<div class="row">
+										<div class="input-field col s6">
+											<input id="r_value3" type="text" class="validate" value=""></input>
+											<label for="r_value3" class="myactive">三级阈值</label>
+										</div>
+										
+										<div class="input-field col s6">
+											<input id="a_type" type="text" readonly value=""></input>
+											<label for="a_type" class="myactive">设备类别（禁止修改）</label>
+										</div>
+									</div>
+									
+								</form>
+								
+								<div class="row">
+									<div class="col-md-6" align="right">
+										<div>
+											<a href="#" onclick="updateRule()" class="waves-effect waves-light btn">
+												保 存
+											</a>
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div>
+											<a href="#" class="waves-effect waves-light btn" onclick="jumpPage('alarmSoftRule.html')">
+												返 回
+											</a>
+										</div>
+									</div>
+								</div>
+								
+								<div class="clearBoth"></div>
+							</div>
+						</div>
+					</div>	
+				</div>	
+				
+				<div class="fixed-action-btn horizontal click-to-toggle">
+					<a class="btn-floating btn-large red">
+						<i class="material-icons">menu</i>
+					</a>
+					<ul>
+						<li><a href="dashboard.html" class="btn-floating red"><i class="material-icons">track_changes</i></a></li>
+						<li><a href="#" class="btn-floating green"><i class="material-icons">publish</i></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<script src="assets/js/jquery-1.10.2.js"></script>
+		<script src="assets/js/bootstrap.min.js"></script>
+		<script src="assets/materialize/js/materialize.min.js"></script>
+		<script src="assets/js/jquery.metisMenu.js"></script>
+		<script src="assets/js/Lightweight-Chart/jquery.chart.js"></script>
+		<script src="assets/js/dataTables/jquery.dataTables.js"></script>
+		<script src="assets/js/dataTables/dataTables.bootstrap.js"></script>
+		<script src="assets/js/tablecommon.js"></script>
+		<script src="./assets/plugins/layer/layer.js"></script>	
+		
+		<script type="text/javascript" src="./pages/common.js"></script>
+		<script type="text/javascript" src="./pages/title.js"></script> 
+		<script type="text/javascript" src="./pages/alarmSoftRuleUpdate.js"></script>
+	</body>
+</html>

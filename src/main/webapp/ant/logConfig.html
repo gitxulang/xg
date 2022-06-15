@@ -1,0 +1,120 @@
+﻿<!DOCTYPE html>
+<html> 
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>安天涉密专用运维管理系统（涉密专用计算平台版）V3.0</title>
+		<link href="assets/css/icon.css" rel="stylesheet" />
+		<link href="assets/materialize/css/materialize.min.css" rel="stylesheet" media="screen,projection" />
+		<link href="assets/css/bootstrap.css" rel="stylesheet" />
+		<link href="assets/css/font-awesome.css" rel="stylesheet" />
+		<link href="assets/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
+		<link href="assets/css/custom-styles.css" rel="stylesheet" />
+		<link href='assets/css/font-awesome.css' rel='stylesheet' type='text/css' />
+		<link href="assets/js/Lightweight-Chart/cssCharts.css" rel="stylesheet"> 
+		<link href="assets/css/common.css" rel="stylesheet">  
+	</head>
+
+	<body>
+		<div id="page-wrapper">
+			<div class="header"> 
+				<ol class="breadcrumb">
+					<li><a>日志管理</a></li>
+					<li><a href="javascript:jumpPage('logConfig.html')">操作日志配置</a></li>
+				</ol> 						
+			</div>
+			
+			<div id="page-inner">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="card" style="background-color:#25356B;color:#fff;">
+							<div class="card-action">
+								<!-- 日志存储配置 -->
+								操作日志配置
+							</div>
+							<div class="card-content">
+								<form class="col s12">
+									<div id="id" style="display:none;"></div>
+									<div class="row">
+										<div class="input-field col s6">
+											<input id="dbbasedir" type="text"  readonly value="">
+											<label for="dbbasedir" class="myactive">数据库安装路径（自动获取）</label>
+										</div>
+										<div class="input-field col s6">
+											<input id="dbdatadir" type="text"  readonly value="">
+											<label for="dbdatadir" class="myactive">数据库存储路径（自动获取）</label>
+										</div>
+									</div>
+
+									<div class="row">
+										<div class="input-field col s6">
+											<select id="partdir" class="my-form-select" onchange="changeSelect()"></select> 
+											<label for="partdir" class="myactive">数据库分区路径（自动获取）</label>
+										</div>
+										<div class="input-field col s6">
+											<input id="partsize" type="number" readonly value="" min="0" readonly>
+											<label for="partsize" class="myactive">数据库分区总容量（KB）</label>
+										</div>
+									</div>
+									
+									<div class="row">
+										<div class="input-field col s6">
+											<input id="partused" type="number" readonly value="" min="0" readonly>
+											<label for="partused" class="myactive">数据库分区已用容量（KB）</label>
+										</div>
+										<div class="input-field col s6">
+											<input id="rule" type="number" value="50" min="0" max="100">
+											<label for="rule" class="myactive">告警阈值设置（%）</label>
+										</div>
+									</div>
+								</form>
+								
+								<div class="row">
+									<div class="col-md-6" align="right">
+										<div>
+											<a href="#" onclick="update()" class="waves-effect waves-light btn">
+												保 存
+											</a>
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div>
+											<a href="#" onclick="resetValue()" class="waves-effect waves-light btn">
+												重 置
+											</a>
+										</div>
+									</div>
+								</div>
+								<div class="clearBoth"></div>
+							</div>
+						</div>
+					</div>	
+				</div>	
+				
+				<div class="fixed-action-btn horizontal click-to-toggle">
+					<a class="btn-floating btn-large red">
+						<i class="material-icons">menu</i>
+					</a>
+					<ul>
+						<li><a href="dashboard.html" class="btn-floating red"><i class="material-icons">track_changes</i></a></li>
+						<li><a href="#" class="btn-floating green"><i class="material-icons">publish</i></a></li>
+					</ul>
+				</div>				
+			</div>
+		</div>
+
+		<script src="assets/js/jquery-1.10.2.js"></script>
+		<script src="assets/js/bootstrap.min.js"></script>
+		<script src="assets/materialize/js/materialize.min.js"></script>
+		<script src="assets/js/jquery.metisMenu.js"></script>
+		<script src="assets/js/Lightweight-Chart/jquery.chart.js"></script>
+		<script src="assets/js/dataTables/jquery.dataTables.js"></script>
+		<script src="assets/js/dataTables/dataTables.bootstrap.js"></script>
+		<script type="text/javascript" src="./assets/plugins/layer/layer.js"></script>
+		
+		<script type="text/javascript" src="./pages/common.js"></script>
+		<script type="text/javascript" src="./pages/title.js"></script> 
+		<script type="text/javascript" src="./pages/logRule.js"></script> 
+
+	</body>
+</html>

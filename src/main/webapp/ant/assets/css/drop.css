@@ -1,0 +1,34 @@
+.drop1btn {
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.drop1btn:hover, .drop1btn:focus {
+    background-color: #3e8e41;
+}
+
+.drop1down {
+    position: relative;
+    display: inline-block;
+}
+
+.drop1down-content {
+    display: none;
+    position: absolute;
+    background-color: #192038;
+    min-width: 310px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #3165c5;
+}
+
+
+.drop1down a:hover {background-color: #f1f1f1}
+
+.show {display:block;padding: 15px}

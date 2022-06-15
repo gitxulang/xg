@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<link rel="stylesheet" type="text/css" href="./css/addTopoArea.css"/>
+        <script type="text/javascript" src="../assets/js/jquery-1.10.2.js"></script>
+        <script type="text/javascript" src="../assets/plugins/layer/layer.js"></script>
+		<script type="text/javascript" src="../pages/common.js"></script>
+		<script type="text/javascript" src="./js/addTopoArea.js"></script>
+	</head>
+
+	<body style="background:#1E284A;">
+		<form id="mainForm" name="mainForm" method="post">
+			<table border="0" id="table1" cellpadding="0" cellspacing="1" width="100%" align="center">
+				<tr>
+					<td  colspan="2"><br></td>	
+				</tr>
+
+				<tr>						
+					<td align="right" height="48" width="40%">
+						<div class="div_edit_area">请输入可用域名称：</div>
+					</td>				
+					<td width="60%">
+						<input type="text" id="area_name" name="area_name" size="30" value="" class="input_edit_area"/>
+						<!-- <font color="red">（限20字符）</font> -->
+					</td>
+				</tr>
+
+
+				<tr>
+					<td colspan="2" align="center">
+						<br>
+						<img src="./img/save.png" onclick="save()"/>&nbsp;&nbsp;&nbsp;&nbsp;
+					    <img src="./img/close.png" onclick="closeDialog()"/>
+					</td>	
+				</tr>
+			</table>									
+		</form>
+	</body>
+</html>
+
+
